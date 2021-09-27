@@ -53,7 +53,7 @@ jobs:
          uses: garygrossgarten/github-action-ssh@release
          with:
            command: |
-             cd 340cs-project
+             cd 361CS-Project
              git pull
 #             mysql -h classmysql.engr.oregonstate.edu -u ${{ secrets.MARIAU }} --password=${{ secrets.MARIAP }} cs340_taylnath < database/DDQ_file.sql
 #             npm install
@@ -63,4 +63,5 @@ jobs:
 #             forever list
            host: ${{ secrets.FLIP_HOST }}
            username: penceg
+           passphrase: ${{secrets.FLIP_KEY_PASSPHRASE}}
            privateKey: ${{ secrets.FLIP_KEY }}
