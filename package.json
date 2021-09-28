@@ -1,0 +1,24 @@
+{
+  "name": "cs361-project",
+  "version": "1.0.0",
+  "description": "This is my readme.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgepence/CS361-Project.git"
+  },
+  "author": "Mac Pence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgepence/CS361-Project/issues"
+  },
+  "homepage": "https://github.com/georgepence/CS361-Project#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0"
+  }
+}
