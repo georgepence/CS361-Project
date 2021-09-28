@@ -56,7 +56,7 @@ jobs:
              git pull
              npm install
              npm run build --prefix mac-app
-             if forever list | grep 361P; then forever stop 361P
+             forever stop 361P
              forever -a --uid 361P start /nfs/stak/users/penceg/cs361-Project/server.js
              forever list
            host: ${{ secrets.FLIP_HOST }}
