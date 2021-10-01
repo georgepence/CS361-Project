@@ -36,6 +36,12 @@ app.use(express.json());
 // app.use('/api/pets', petRoutes);
 // app.use('/api/owners', ownerRoutes);
 
+app.get('/chico', ((req, res) => {
+  console.log("Found Chico!!")
+  // res.send(JSON.stringify("I am a small dog"))
+  throw new Error("ha")
+}))
+
 // server static assets if in production
 console.log("running in: ", process.env.NODE_ENV || "development");
 if (process.env.NODE_ENV === 'production'){
@@ -47,12 +53,6 @@ if (process.env.NODE_ENV === 'production'){
     res.sendFile(path.join(__dirname, 'mac-app', 'build', 'index.html'));
   });
 }
-
-app.get('/chico', ((req, res) => {
-  // console.log("Found Chico!!")
-  // res.send(JSON.stringify("I am a small dog"))
-  throw new Error("ha")
-}))
 
 app.get('*', (req, res) => {
   res.status(500).json({
