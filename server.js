@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
+const https = require('https');
+
 // const queryAsync = require('./database/dbcon')
 // const fs = require('fs');
 // const { query } = require('express');
@@ -38,8 +41,28 @@ app.use(express.json());
 
 app.get('/chico', ((req, res) => {
   console.log("Found Chico!!")
-  // res.send(JSON.stringify("I am a small dog"))
-  throw new Error("ha")
+  res.send(JSON.stringify("I am a small dog"))
+  
+  async function Chico() {
+    // URL of the image
+    const url = 'https://web.engr.oregonstate.edu/~penceg/roscoe-memorial/images/gate.jpeg?width=450';
+    
+    https.get(url,(res) => {
+      console.log("Status = ", res.statusCode)
+      // Image will be stored at this path
+      const path = `${__dirname}/mac-app/images/cave.jpeg`;
+      console.log("path = ", path)
+      const filePath = fs.createWriteStream(path);
+      res.pipe(filePath);
+      filePath.on('finish',() => {
+        filePath.close();
+        console.log('Download Completed');
+      })
+    })
+  }
+  
+  Chico().then((res) => console.log("yahoo!!", res)).catch(err => console.log(err));
+  
 }))
 
 // server static assets if in production

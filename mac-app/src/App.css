@@ -13,6 +13,10 @@
   }
 }
 
+body {
+  background-color: floralwhite;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +39,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#home-h1 {
+  color: midnightblue;
+  position: relative;
+  float: left;
+}
+
+#footer {
+  position: relative;
+  height: 56px;
+  background-color: rgb(248, 249, 250);
+  width: 100%;
+  text-align: center;
+  color: black;
+  padding-top: 15px;
+  margin-top: 40px;
+}
+
+#footer-text {
+  position: relative;
+}
+
+.credits {
+  text-decoration: none;
+  color: royalblue;
+  font-weight: 450;
+}
+
+.credits:hover {
+  font-weight: 500;
+  color: blue;
+}
+
+.loud {
+  font-weight: 600;
+  color: midnightblue;
 }

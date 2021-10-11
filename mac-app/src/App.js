@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
 import Chicodog from "./Components/Chico";
+import { Navbar } from "./Components/Navbar";
+import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import Home from './Routes/Home';
+import Credits from "./Routes/Credits";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Chicodog />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path={"/Exhibitions"}>
+            <Chicodog/>
+          </Route>
+          <Route path="/Credits">
+            <Credits/>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>
+        </Switch>
+        <div id={"footer"}>
+          <p id={"footer-text"}>
+            Website by <a href={"/Credits"} className={"credits"}>
+            Mac Pence</a> and the <a href={"/Credits"} className={"credits"}>
+            Dauntless Design Team </a></p>
+        </div>
+      </Router>
     </div>
   );
 }
