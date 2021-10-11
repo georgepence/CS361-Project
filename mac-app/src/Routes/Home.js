@@ -5,7 +5,7 @@ function Home() {
       <>
         <Container >
           <h1 id={"home-h1"}>Richmond Virginia Museums</h1>
-          <p>I am a home page</p>
+          <p>I am a home page!</p>
         </Container>
       </>
   )
