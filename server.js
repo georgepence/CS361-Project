@@ -2,14 +2,14 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const https = require('https');
+const queryDB = require('./database/dbcon');
 
-// const queryAsync = require('./database/dbcon')
 // const fs = require('fs');
 // const { query } = require('express');
 // const apiRoutes = require('./routes/api/api');
 // const dynamicRoutes = require('./routes/api/dynamic');
 // const testRoutes = require('./routes/testing');
-// const coffeeRoutes = require('./routes/coffee');
+const museumRoutes = require('./routes/api/museums');
 // const bookingsRoutes = require('./routes/api/bookings');
 // const employeesRoutes = require('./routes/api/employees');
 // const reservationsRoutes = require('./routes/api/reservations');
@@ -32,7 +32,7 @@ app.use(express.json());
 // app.use('/api', testRoutes);
 // app.use('/api/dynamic', dynamicRoutes);
 // app.use('/coffee', coffeeRoutes);
-// app.use('/api/bookings', bookingsRoutes);
+app.use('/api/museums', museumRoutes);
 // app.use('/api/employees', employeesRoutes);
 // app.use('/api/reservations', reservationsRoutes);
 // app.use('/api/rooms', roomsRoutes);
@@ -76,6 +76,16 @@ if (process.env.NODE_ENV === 'production'){
     res.sendFile(path.join(__dirname, 'mac-app', 'build', 'index.html'));
   });
 }
+
+app.get('/museums', async (req, res) => {
+  await queryDB(`get * from Museums`)
+      .then(result => {
+        console.log(result)
+        res.json(result)
+      })
+      .catch(err => res.send(err.sqlMessage))
+
+});
 
 app.get('*', (req, res) => {
   res.status(500).json({
