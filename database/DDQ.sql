@@ -32,3 +32,8 @@ create table  `Exhibitions` (
   constraint `exhibits_fk1` foreign key (`museumId`) references `Museums`(`museumId`) on delete restrict on update cascade,
   unique key `exhibitId`(`exhibitId`)
 ) ENGINE=InnoDB;
+
+insert into `Museums` values (1, 'Virginia Museum of Fine Arts', 'Art', 'info@vmfa.museum', '200 N. Arthur Ashe Boulevard, Richmond, VA 23220', 'www.vmfa.museum', 'vmfa.jpg', 'vmfa.jpg',
+                                 'The Virginia Museum of Fine Arts in Richmond, Virginia, is one of the largest comprehensive art museums in the United States. VMFA’s permanent holdings encompass  ' +
+                                 'nearly 40,000 artworks, including the largest public collection of Fabergé outside of Russia, the finest collection of Art Nouveau outside of Paris, and one of the ' +
+                                 'nation’s finest collections of American art. The Virginia Museum of Fine Arts is the only art museum in the United States open 365 days a year with free general admission.');
