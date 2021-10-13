@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false }));
 //  --------------- Get all museums, with selected fields ---------------------
 
 router.get('/', async (req, res) => {
-  const fields = 'museumId, name';
+  const fields = 'museumId, name, smallPicture';
   await queryDB(`select ${fields} from Museums`)
       .then(result => {
         console.log(result)

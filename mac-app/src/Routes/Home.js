@@ -1,18 +1,26 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
-import {useEffect} from "react";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 function Home() {
+  const [loadingStatus, setLoadingStatus] = useState({
+    loading: false
+  });
+  const [museums, setMuseums] = useState([]);
   
   
   // ----------- Get Museum information --------------
   
   function getMuseums() {
     async function fetchMuseums() {
-      await fetch("http://flip3.engr.oregonstate.edu:17775")
+      setLoadingStatus({loading: true})
+      await fetch("/api/museums")
           .then((response) => response.json())
-          .then((data) => console.log("Millie!!", data))
-          .catch((err) => console.log("Chico messed up", err))
-          .finally(() => console.log("finally!"))
+          .then((data) => setMuseums(data))
+          .catch((err) => {
+            console.log("Error fetching Museums", err);
+          })
+          .finally(() => setLoadingStatus({loading: false}))
       
       // await fetch("http://flip3.engr.oregonstate.edu:17775")
       //     .then((response) => {
@@ -25,27 +33,29 @@ function Home() {
       //     })
       
     }
-    testFetch().then(() => console.log("TestFetch Finished"));
+    fetchMuseums().then(() => console.log("TestFetch Finished"));
   }
   
-  useEffect(() => DogBreath(), []);
+  useEffect(() => getMuseums(), []);
   
   // ----------- Render page --------------
   return (
       <>
         <Container >
-          <Row>
-          <h1 id={"home-h1"}>Richmond Virginia Museums</h1>
+          <Row id={"home-r1"}>
+            <Col>
+              <h1 id={"home-h1"} className={"mt-2"}>Richmond Virginia Museums</h1>
+            </Col>
           </Row>
-          <Row><p>I am a home page!!!</p></Row>
+          <Row ><LoadingSpinner loading={loadingStatus.loading} /></Row>
           
           <Row xs={1} md={3} className="g-4">
-            {Array.from({ length: 4 }).map((_, idx) => (
+            {museums.map((museum, idx) => (
                 <Col>
-                  <Card>
+                  <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"}>
                     <Card.Img variant="top" src="holder.js/100px160" />
                     <Card.Body>
-                      <Card.Title>Card title</Card.Title>
+                      <Card.Title>{museum.name}</Card.Title>
                       <Card.Text>
                         This is a longer card with supporting text below as a natural
                         lead-in to additional content. This content is a little bit longer.

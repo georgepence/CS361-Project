@@ -47,6 +47,11 @@ body {
   float: left;
 }
 
+#home-r1 {
+  position: relative;
+  width: 100%;
+}
+
 #footer {
   position: relative;
   height: 56px;
@@ -77,3 +82,4 @@ body {
   font-weight: 600;
   color: midnightblue;
 }
+
