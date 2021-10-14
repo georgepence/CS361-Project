@@ -11,9 +11,11 @@ const pool = mysql.createPool({
 });
 
 function promisePool(query, vars) {
+  console.log("In dbCon, query = ", query)
   return new Promise((res, rej) => {
     pool.query(query, vars, (err, rows, fields) => {
       if (err) {
+        console.error(err);
         rej(err);
       } else {
         res(rows);

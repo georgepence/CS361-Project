@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';   todo
 import './App.css';
-import Chicodog from "./Components/Chico";
+// import Chicodog from "./Components/Chico";  todo
 import { Navbar } from "./Components/Navbar";
-import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Routes/Home';
+import Exhibitions from './Routes/Exhibitions';
 import Credits from "./Routes/Credits";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path={"/Exhibitions"}>
-            <Chicodog/>
+            <Exhibitions/>
           </Route>
           <Route path="/Credits">
             <Credits/>
