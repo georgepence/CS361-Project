@@ -48,29 +48,29 @@ insert into `Museums` values (6, 'American Civil War Museum', 'History', NULL, '
 insert into `Museums` values (7, 'Branch Museum of Architecture and Design', 'Other', 'frontdesk@branchmuseum.org', '(804) 655-6055', '2501 Monument Avenue, Richmond, VA 23220', 'https://branchmuseum.org', 'branch.jpg', 'branch.jpg', null);
 insert into `Museums` values (8, 'Virginia Holocaust Museum', 'History', 'web_contact@vaholocaust.org', '(804) 257-5400', '2000 East Cary Street, Richmond, VA 23223', 'https://www.vaholocaust.org', 'holocaust.jpg', 'holocaust.jpg', null);
 
-insert into `Exhibitions` values (1, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 1);
-insert into `Exhibitions` values (2, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 2);
-insert into `Exhibitions` values (3, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 3);
-insert into `Exhibitions` values (4, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 4);
-insert into `Exhibitions` values (5, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 5);
-insert into `Exhibitions` values (6, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 6);
-insert into `Exhibitions` values (7, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 7);
-insert into `Exhibitions` values (8, 'Exhibition 1', 'A great exhibition', 2021-10-01, 2021-10-31, 8);
-insert into `Exhibitions` values (9, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 1);
-insert into `Exhibitions` values (10, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 2);
-insert into `Exhibitions` values (11, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 3);
-insert into `Exhibitions` values (12, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 4);
-insert into `Exhibitions` values (13, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 5);
-insert into `Exhibitions` values (14, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 6);
-insert into `Exhibitions` values (15, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 7);
-insert into `Exhibitions` values (16, 'Exhibition 2', 'A great exhibition', 2021-11-01, 2021-11-30, 8);
-insert into `Exhibitions` values (17, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 1);
-insert into `Exhibitions` values (18, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 2);
-insert into `Exhibitions` values (19, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 3);
-insert into `Exhibitions` values (20, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 4);
-insert into `Exhibitions` values (21, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 5);
-insert into `Exhibitions` values (22, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 6);
-insert into `Exhibitions` values (23, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 7);
-insert into `Exhibitions` values (24, 'Exhibition 3', 'A great exhibition', 2021-12-01, 2021-12-31, 8);
+insert into `Exhibitions` values (1, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 1);
+insert into `Exhibitions` values (2, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 2);
+insert into `Exhibitions` values (3, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 3);
+insert into `Exhibitions` values (4, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 4);
+insert into `Exhibitions` values (5, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 5);
+insert into `Exhibitions` values (6, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 6);
+insert into `Exhibitions` values (7, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 7);
+insert into `Exhibitions` values (8, 'Exhibition 1', 'A great exhibition', '2021-10-01', '2021-10-31', 8);
+insert into `Exhibitions` values (9, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 1);
+insert into `Exhibitions` values (10, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 2);
+insert into `Exhibitions` values (11, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 3);
+insert into `Exhibitions` values (12, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 4);
+insert into `Exhibitions` values (13, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 5);
+insert into `Exhibitions` values (14, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 6);
+insert into `Exhibitions` values (15, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 7);
+insert into `Exhibitions` values (16, 'Exhibition 2', 'A great exhibition', '2021-11-01', '2021-11-30', 8);
+insert into `Exhibitions` values (17, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 1);
+insert into `Exhibitions` values (18, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 2);
+insert into `Exhibitions` values (19, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 3);
+insert into `Exhibitions` values (20, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 4);
+insert into `Exhibitions` values (21, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 5);
+insert into `Exhibitions` values (22, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 6);
+insert into `Exhibitions` values (23, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 7);
+insert into `Exhibitions` values (24, 'Exhibition 3', 'A great exhibition', '2021-12-01', '2021-12-31', 8);
 
-insert into `LastUpdate` values (2021-10-13)
+insert into `LastUpdate` values ('2021-10-13')
