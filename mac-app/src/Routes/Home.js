@@ -16,7 +16,7 @@ function Home() {
       setLoadingStatus({loading: true})
       await fetch("/api/museums")
           .then((response) => response.json())
-          .then((data) => setMuseums(data))
+          .then((data) => {setMuseums(data)})
           .catch((err) => {
             console.log("Error fetching Museums", err);
           })

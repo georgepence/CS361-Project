@@ -83,3 +83,20 @@ body {
   color: midnightblue;
 }
 
+.museum-exhibitions {
+  border-top-color: midnightblue;
+  border-top-style: solid;
+  border-top-width: thin;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+.breadcrumb-item {
+  font-size: small;
+  color: dimgray;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: steelblue;
+}
