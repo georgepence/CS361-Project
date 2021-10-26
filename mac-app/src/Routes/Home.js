@@ -1,8 +1,9 @@
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, NavLink } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
-function Home() {
+function Home(props) {
   const [loadingStatus, setLoadingStatus] = useState({
     loading: false
   });
@@ -21,16 +22,6 @@ function Home() {
             console.log("Error fetching Museums", err);
           })
           .finally(() => setLoadingStatus({loading: false}))
-      
-      // await fetch("http://flip3.engr.oregonstate.edu:17775")
-      //     .then((response) => {
-      //       response.json()
-      //           .then((data) => console.log("Data here", data))
-      //           .finally(() => console.log("Did it work??"))
-      //     }, (err) => {
-      //       console.log("Error!", err)
-      //       console.log("Did it work??")
-      //     })
       
     }
     fetchMuseums().then(() => console.log("TestFetch Finished"));
@@ -51,17 +42,20 @@ function Home() {
           
           <Row xs={1} md={3} className="g-4">
             {museums.map((museum, idx) => (
-                <Col>
-                  <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"}>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                      <Card.Title>{museum.name}</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                <Col className={"homeCol"}>
+                  <Link to={{pathname:"/Museum"}}>
+                    <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"}>
+                      <Card.Img variant="top" src="holder.js/100px160" />
+                      <Card.Body>
+                        <Card.Title className={"hTitle"}>{museum.name}</Card.Title>
+                        <Card.Text className={"hText"}>
+                          This is a longer card with supporting text below as a natural
+                          lead-in to additional content. This content is a little bit longer.
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+
                 </Col>
             ))}
           </Row>

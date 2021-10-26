@@ -1,26 +1,41 @@
-// import logo from './logo.svg';   todo
 import './App.css';
-// import Chicodog from "./Components/Chico";  todo
 import { Navbar } from "./Components/Navbar";
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Routes/Home';
+import Museum from './Routes/Museum';
 import Exhibitions from './Routes/Exhibitions';
 import Credits from "./Routes/Credits";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [loadingStatus, setLoadingStatus] = useState({
+    loading: false
+  });
+  const [selectedMuseum, setSelectedMuseum] = useState({
+    id: '1',
+    name: 'Virginia Museum of Fine Arts'
+  });
+  
+  // ----------- Get Museum information --------------
+
+  
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Switch>
           <Route path={"/Exhibitions"}>
-            <Exhibitions/>
+            <Exhibitions />
+          </Route>
+          <Route path={"/Museum"}>
+            <Museum museum={selectedMuseum}
+            />
           </Route>
           <Route path="/Credits">
-            <Credits/>
+            <Credits />
           </Route>
           <Route path="/">
-            <Home/>
+            <Home />
           </Route>
         </Switch>
         <div id={"footer"}>

@@ -100,3 +100,53 @@ body {
   text-decoration: none;
   color: steelblue;
 }
+
+.homeCol a {
+  text-decoration: none;
+}
+
+.hTitle {
+  color: darkblue;
+}
+
+.hText {
+  color: darkslategray;
+}
+
+.museum-r1 {
+  min-height: 250px;
+}
+
+.museum-r2 {
+  min-height: 150px;
+}
+
+.div-r2 {
+  background-color: ghostwhite;
+  height: 100%;
+  width: 100%;
+  padding: 1em 1em 0em 1em;
+}
+
+.museum-r {
+  background-color: ghostwhite;
+  margin-bottom: 1em;
+}
+
+.museum-r h3 {
+  color: cadetblue;
+}
+
+.mus-h1 {
+  color: midnightblue;
+  position: relative;
+  float: left;
+}
+
+#m-bc-back {
+  color:steelblue;
+}
+
+#spacer {
+  margin-bottom: 1em;
+}
