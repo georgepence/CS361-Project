@@ -9,7 +9,7 @@ const MuseumExhibitions = (props) => {
         <Row >
           <Col className={"museum-exhibitions"}
                md={5}
-               title={`Click here to navigate to see information about the ${props.museum}`}
+               title={`Click here to navigate to see information about the ${props.museum} (This is not 'live' yet)`}
           >
             {props.museum}
           </Col>
