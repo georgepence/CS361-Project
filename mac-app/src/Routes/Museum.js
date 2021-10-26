@@ -65,12 +65,15 @@ function Museum(props) {
       <>
         <Container>
           <Breadcrumb>
-            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="/"
+                             title={"Return to the Home Page"}>
+              Home
+            </Breadcrumb.Item>
             <Breadcrumb.Item id={"m-bc-back"}
                              hidden={!exhibitsPage}
-                             onClick={() => {
-                               setExhibitsPage(false)
-                             }}>
+                             onClick={() => {setExhibitsPage(false)}}
+                             title={`Return to the ${props.museum.name} information page`}
+            >
               {props.museum.name}
             </Breadcrumb.Item>
             <Breadcrumb.Item hidden={!exhibitsPage} active>Exhibitions</Breadcrumb.Item>
@@ -102,7 +105,7 @@ function Museum(props) {
               <Button variant={"outline-secondary"}
                       onClick={() => {
                         setExhibitsPage(!exhibitsPage)
-                      }}>
+                      }} title={`View the exhibitions at the ${props.museum.name}`}>
                 View Exhibition Information for {props.museum.name}
               </Button>
             </Col>
@@ -132,7 +135,8 @@ function Museum(props) {
           
           <Row className={"g-4 museum-r2"}>
             <Col md={6}>
-              <div className={"div-r2"}>
+              <div className={"div-r2"}
+                   title={`View ${props.museum.name} location, get directions`}>
                 <h6>Map</h6>
                 <p>
                   Location map of the museum will be shown here,
@@ -141,7 +145,9 @@ function Museum(props) {
               </div>
             </Col>
             <Col md={6}>
-              <div className={"div-r2"}>
+              <div className={"div-r2"}
+                   title={`View Richmond restaurants, pick where to have lunch` +
+                    ` or dinner when visiting the ${props.museum.name}`}>
                 <h6>Local Restaurants</h6>
                 <p>
                   Information on local restaurants will be shown here,

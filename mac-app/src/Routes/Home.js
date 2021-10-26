@@ -44,7 +44,7 @@ function Home(props) {
             {museums.map((museum, idx) => (
                 <Col className={"homeCol"}>
                   <Link to={{pathname:"/Museum"}}>
-                    <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"}>
+                    <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"} title={`Explore the ${museum.name}`}>
                       <Card.Img variant="top" src="holder.js/100px160" />
                       <Card.Body>
                         <Card.Title className={"hTitle"}>{museum.name}</Card.Title>

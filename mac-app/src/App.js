@@ -40,7 +40,7 @@ function App() {
         </Switch>
         <div id={"footer"}>
           <p id={"footer-text"}>
-            Website by <a href={"/Credits"} className={"credits"}>
+            Website by <a href={"/Credits"} className={"credits"} title={"View information about the web designer."}>
             Mac Pence</a> and the <a href={"/Credits"} className={"credits"}>
             Dauntless Design Team </a></p>
         </div>

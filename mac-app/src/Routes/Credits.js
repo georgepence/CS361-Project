@@ -43,7 +43,11 @@ function Credits() {
           </h2>
           
           <p>
-            <a className={"credits"} href={"https://github.com/georgepence"}>Mac Pence on Github</a>
+            <a className={"credits"}
+               href={"https://github.com/georgepence"}
+               title={"Caution: This will take you away from this website"}
+            >Mac Pence on Github
+            </a>
           </p>
           
           <div style={{height: "90px"}}>

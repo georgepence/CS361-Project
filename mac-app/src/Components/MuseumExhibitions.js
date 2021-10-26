@@ -7,7 +7,10 @@ const MuseumExhibitions = (props) => {
   return (
       <>
         <Row >
-          <Col className={"museum-exhibitions"} md={5}>
+          <Col className={"museum-exhibitions"}
+               md={5}
+               title={`Click here to navigate to see information about the ${props.museum}`}
+          >
             {props.museum}
           </Col>
           <Col className={"museum-exhibitions"} md={7}>
