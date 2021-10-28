@@ -139,6 +139,8 @@ function Museum(props) {
               <div className={"div-r2"}
                    title={`View ${props.museum.name} location, get directions`}>
                 <MuseumMap city={"Richmond"} state={"VA"} />
+                <img src={"http://flip3.engr.oregonstate.edu:17778/getImage?width=600&height=600"}
+                     alt={"image"} />
               </div>
             </Col>
             <Col md={6}>
