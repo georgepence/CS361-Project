@@ -1,6 +1,7 @@
 import {Container, Row, Col, Breadcrumb, Button} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import MuseumMap from "../Components/MuseumMap";
 // import { GetExhibitions as fetchExhibitions } from "../DataAccess/GetExhibitions"  todo
 import MuseumExhibitions from "../Components/MuseumExhibitions";
 
@@ -137,11 +138,7 @@ function Museum(props) {
             <Col md={6}>
               <div className={"div-r2"}
                    title={`View ${props.museum.name} location, get directions`}>
-                <h6>Map</h6>
-                <p>
-                  Location map of the museum will be shown here,
-                  provided by teammate's microservice.
-                </p>
+                <MuseumMap city={"Richmond"} state={"VA"} />
               </div>
             </Col>
             <Col md={6}>
