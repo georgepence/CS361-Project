@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm run client-install",
-    "client-install": "npm install --prefix client",
+    "preinstall": "npm run mac-app-install",
+    "client-install": "npm install --prefix mac-app",
     "start": "node server.js",
     "killme": "forever stop 361P",
     "dance": "forever -a --uid 361P start server.js"

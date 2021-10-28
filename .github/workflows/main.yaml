@@ -52,7 +52,7 @@ jobs:
          uses: garygrossgarten/github-action-ssh@release
          with:
            command: |
-             cd CS361-Project
+             cd RVA-Museums
              git pull
              npm install
              npm run build --prefix mac-app
