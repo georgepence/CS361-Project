@@ -25,17 +25,17 @@ function App() {
         <Navbar />
         <Switch>
           <Route path={"/Exhibitions"}>
-            <Exhibitions />
+            <Exhibitions setSelectedMuseum={setSelectedMuseum} />
           </Route>
           <Route path={"/Museum"}>
-            <Museum museum={selectedMuseum}
+            <Museum museum={selectedMuseum} key={"M-" + selectedMuseum.id}
             />
           </Route>
           <Route path="/Credits">
             <Credits />
           </Route>
           <Route path="/">
-            <Home />
+            <Home setSelectedMuseum={setSelectedMuseum} />
           </Route>
         </Switch>
         <div id={"footer"}>

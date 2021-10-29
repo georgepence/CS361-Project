@@ -1,9 +1,11 @@
-import { Container } from "react-bootstrap";
+import { Container, Modal, Row, Col, Button } from "react-bootstrap";
+import { useState } from "react";
 
 // Credits
 
 function Credits() {
-  
+  const [ modalVisible, setModalVisible ] = useState("false")
+
   // render page
   return (
       <div>
@@ -43,11 +45,12 @@ function Credits() {
           </h2>
           
           <p>
-            <a className={"credits"}
-               href={"https://github.com/georgepence"}
-               title={"Caution: This will take you away from this website"}
+            <Button className={"credits"}
+                    variant={"outline-secondary"}
+                    onClick={() => {setModalVisible(false)}}
+                    title={"Caution: This will take you away from this website"}
             >Mac Pence on Github
-            </a>
+            </Button>
           </p>
           
           <div style={{height: "90px"}}>
@@ -55,6 +58,37 @@ function Credits() {
           </div>
         
         </Container>
+        <Modal animation={false} show={!modalVisible} onHide={() => setModalVisible(true)}>
+          <Modal.Header closeButton>
+            <Modal.Title id={"confirm-github-title"} >
+              Please Confirm or Cancel
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+              <Container className={"pt-0 pb-2"}>
+                <Row>
+                  <Col>
+                    <p id={"confirm-github"}>
+                      This will navigate away away from Richmond VA Museums, to a
+                      different website
+                    </p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Button variant="primary"
+                            md={4}
+                            href={"https://github.com/georgepence"}
+                            onClick={() => setModalVisible("false")}
+                    >
+                      Yes, I want to go to Mac's Github
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+            {/*</form>*/}
+          </Modal.Body>
+        </Modal>
       
       </div>
   );

@@ -10,11 +10,10 @@ function Museum(props) {
   const [loadingStatus, setLoadingStatus] = useState({
     loading: false
   });
-  const [exhibitions, setExhibitions] = useState([]);
+  // const [exhibitions, setExhibitions] = useState([]);      //  TODO
   const [museums, setMuseums] = useState([]);
   const [exhibitsPage, setExhibitsPage] = useState(false);
-  
-  console.log("props", props)
+
   
   // ----------- Get Exhibition information --------------
   
@@ -31,18 +30,23 @@ function Museum(props) {
       await fetch(url)
           .then((res) => res.json())
           .then((data) => {
-            setExhibitions(data);
-            console.log("data!!!!!", data)
+            // setExhibitions(data);          // TODO
+            // console.log("data!!!!!", data)    // TODO
             
             // Organize the exhibitions by museum.
-            let rvaMuseums = [{name: data[0].museum, exhibitions: []}];
+            let rvaMuseums = [{
+              name: data[0].museum,
+              exhibitions: [],
+              key: data[0].id
+            }];
             console.log("rvaMuseums = ", rvaMuseums)
             for (let i = 0; i < data.length; i++) {
               
               console.log("rvaMuseums = ", rvaMuseums)
               rvaMuseums[0].exhibitions.push({
                 exhibition: data[i].exhibition,
-                id: data[i].id
+                id: data[i].exhibitId,
+                key: data[i].exhibitId
               })
             }
             
@@ -54,7 +58,7 @@ function Museum(props) {
           .finally(() => setLoadingStatus({loading: false}));
     }
     
-    getExhibits().then(() => console.log("TestFetch Finished"));
+    getExhibits().then(() => console.log("TestFetch Finished in Museum"));
   }
   
   useEffect(() => {
@@ -66,22 +70,26 @@ function Museum(props) {
       <>
         <Container>
           <Breadcrumb>
-            <Breadcrumb.Item href="/"
+            <Breadcrumb.Item key={"mus-bc-1"}
+                             href="/"
                              title={"Return to the Home Page"}>
               Home
             </Breadcrumb.Item>
-            <Breadcrumb.Item id={"m-bc-back"}
+            <Breadcrumb.Item key={"mus-bc-2"}
+                             id={"m-bc-back"}
                              hidden={!exhibitsPage}
                              onClick={() => {setExhibitsPage(false)}}
                              title={`Return to the ${props.museum.name} information page`}
             >
               {props.museum.name}
             </Breadcrumb.Item>
-            <Breadcrumb.Item hidden={!exhibitsPage} active>Exhibitions</Breadcrumb.Item>
-            <Breadcrumb.Item hidden={exhibitsPage} active>{props.museum.name}</Breadcrumb.Item>
+            <Breadcrumb.Item key={"mus-bc-3"}
+                             hidden={!exhibitsPage} active>Exhibitions</Breadcrumb.Item>
+            <Breadcrumb.Item key={"mus-bc-4"}
+                             hidden={exhibitsPage} active>{props.museum.name}</Breadcrumb.Item>
           </Breadcrumb>
           
-          <Row className={"museum-r"}>
+          <Row key={"row1"} className={"museum-r"}>
             <Col>
               <h1 className={"mt-2 mus-h1"}>
                 {props.museum.name}
@@ -89,12 +97,12 @@ function Museum(props) {
             </Col>
           </Row>
           
-          <Row id={"spacer"}>
+          <Row key={"row2"} id={"spacer"}>
             <Col>
             </Col>
           </Row>
           
-          <Row
+          <Row key={"row3"}
               className={"museum-r museum-r1 g-4"}
               hidden={exhibitsPage}>
             <Col>
@@ -112,15 +120,16 @@ function Museum(props) {
             </Col>
           </Row>
           
-          <Row xs={1}
+          <Row key={"row4"} xs={1}
                className="g-4 museum-r1 museum-r"
                hidden={!exhibitsPage}>
             <h3>Exhibitions</h3>
             {museums ? (
-                museums.map((museum) => (
-                    <MuseumExhibitions
-                        museum={museum.name}
-                        exhibitions={museum.exhibitions}
+                museums.map((museum, index) => (
+                    <MuseumExhibitions key={museum.id}
+                                       museum={museum.name}
+                                       museumId={museum.id}
+                                       exhibitions={museum.exhibitions}
                     />
                 ))) : (
                 <Col>
@@ -129,18 +138,16 @@ function Museum(props) {
             }
           </Row>
           
-          <Row id={"spacer"}>
+          <Row key={"row5"} id={"spacer"}>
             <Col>
             </Col>
           </Row>
           
-          <Row className={"g-4 museum-r2"}>
+          <Row key={"row6"} className={"g-4 museum-r2"}>
             <Col md={6}>
               <div className={"div-r2"}
                    title={`View ${props.museum.name} location, get directions`}>
                 <MuseumMap city={"Richmond"} state={"VA"} />
-                <img src={"http://flip3.engr.oregonstate.edu:17778/getImage?width=600&height=600"}
-                     alt={"image"} />
               </div>
             </Col>
             <Col md={6}>

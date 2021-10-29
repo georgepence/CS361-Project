@@ -4,11 +4,11 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 // import { GetExhibitions as fetchExhibitions } from "../DataAccess/GetExhibitions"  todo
 import MuseumExhibitions from "../Components/MuseumExhibitions";
 
-function Exhibitions() {
+function Exhibitions(props) {
   const [loadingStatus, setLoadingStatus] = useState({
     loading: false
   });
-  const [exhibitions, setExhibitions] = useState([]);
+  // const [exhibitions, setExhibitions] = useState([]);    // TODO
   const [museums, setMuseums] = useState([]);
   
   
@@ -16,9 +16,10 @@ function Exhibitions() {
   
   function getExhibitions() {
     
-    const query = "select Museums.name as museum, Exhibitions.exhibitName " +
-        "as exhibition, Exhibitions.exhibitId as id from Museums left join Exhibitions on " +
-        "Museums.museumId = Exhibitions.museumId order by museum"
+    const query = "select Museums.name as museum, Museums.museumId as id, " +
+        " Exhibitions.exhibitName as exhibition, Exhibitions.exhibitId as " +
+        "id from Museums left join Exhibitions on Museums.museumId = " +
+        "Exhibitions.museumId order by museum;"
     const url = `/api/exhibitions?query=${query}`;
     
     async function getExhibits() {
@@ -26,16 +27,21 @@ function Exhibitions() {
       await fetch(url)
           .then((res) => res.json())
           .then((data) => {
-            setExhibitions(data);
+            // setExhibitions(data);        // TODO
             
             // Organize the exhibitions by museum.
-            let rvaMuseums = [{name: data[0].museum, exhibitions: []}];
+            let rvaMuseums = [{
+              name: data[0].museum,
+              id: data[0].id,
+              exhibitions: []
+            }];
             let index = 0;
             for (let i = 0; i < data.length; i++) {
               console.log("rva = ", rvaMuseums[index].name, "data = ", data[i].museum)
               if (!(rvaMuseums[index].name === data[i].museum)) {
                 rvaMuseums.push({
                   name: data[i].museum,
+                  id: data[i].id,
                   exhibitions: []
                 });
                 index ++
@@ -52,7 +58,7 @@ function Exhibitions() {
             console.error("Error in GetExhibitions = ", err)})
           .finally(() => setLoadingStatus({loading: false}));
     }
-    getExhibits().then(() => console.log("TestFetch Finished"));
+    getExhibits().then(() => console.log("TestFetch Finished in Exhibitions"));
   }
   
   useEffect(() => getExhibitions(), []);
@@ -83,8 +89,11 @@ function Exhibitions() {
           <Row xs={1} className="g-4">
             {museums ? (
                 museums.map((museum) => (
-                    <MuseumExhibitions museum={museum.name}
+                    <MuseumExhibitions key={museum.id}
+                                       museum={museum.name}
+                                       museumId={museum.id}
                                        exhibitions={museum.exhibitions}
+                                       setSelectedMuseum={props.setSelectedMuseum}
                     />
                 ))) : (
                 <Col>

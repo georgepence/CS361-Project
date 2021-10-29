@@ -125,7 +125,7 @@ body {
   background-color: ghostwhite;
   height: 100%;
   width: 100%;
-  padding: 1em 1em 0em 1em;
+  padding: 0em;
 }
 
 .museum-r {
@@ -149,4 +149,20 @@ body {
 
 #spacer {
   margin-bottom: 1em;
+}
+
+#mus-exh-link {
+  text-decoration: none;
+  color: darkblue;
+  font-weight: 425;
+}
+
+#confirm-github {
+  color: darkslateblue;
+}
+
+#confirm-github-title {
+  font-size: 22px;
+  color: darkblue;
+  font-weight: 600;
 }

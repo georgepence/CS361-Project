@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, NavLink } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
@@ -24,7 +24,7 @@ function Home(props) {
           .finally(() => setLoadingStatus({loading: false}))
       
     }
-    fetchMuseums().then(() => console.log("TestFetch Finished"));
+    fetchMuseums().then(() => console.log("TestFetch Finished in Home"));
   }
   
   useEffect(() => getMuseums(), []);
@@ -43,7 +43,11 @@ function Home(props) {
           <Row xs={1} md={3} className="g-4">
             {museums.map((museum, idx) => (
                 <Col className={"homeCol"}>
-                  <Link to={{pathname:"/Museum"}}>
+                  <Link onClick={() => props.setSelectedMuseum({
+                    id: museum.museumId,
+                    name: museum.name,
+                    key: museum.museumId
+                  })} to={{pathname:"/Museum"}}>
                     <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"} title={`Explore the ${museum.name}`}>
                       <Card.Img variant="top" src="holder.js/100px160" />
                       <Card.Body>
