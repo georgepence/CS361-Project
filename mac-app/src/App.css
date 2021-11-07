@@ -126,8 +126,21 @@ body {
   height: 100%;
   width: 100%;
   padding: 0em;
+  position: relative;
 }
 
+.c-r2 {
+  padding: 1em;
+}
+
+#map-container {
+  position: relative;
+}
+
+#restaurant-container {
+  padding: 1em;
+  position: relative;
+}
 .museum-r {
   background-color: ghostwhite;
   margin-bottom: 1em;
@@ -172,6 +185,6 @@ body {
   top: 40%;
 }
 
-#map-container {
-  position: relative;
+.btn-light.r-name {background-color: ghostwhite;
+
 }

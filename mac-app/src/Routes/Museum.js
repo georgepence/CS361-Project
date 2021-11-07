@@ -2,6 +2,8 @@ import {Container, Row, Col, Breadcrumb, Button} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import MuseumMap from "../Components/MuseumMap";
+import Restaurants from "../Components/Restaurants";
+import RestaurantModal from "../Components/RestaurantModal";
 // import { GetExhibitions as fetchExhibitions } from "../DataAccess/GetExhibitions"  todo
 import MuseumExhibitions from "../Components/MuseumExhibitions";
 
@@ -10,12 +12,16 @@ function Museum(props) {
   const [loadingStatus, setLoadingStatus] = useState({
     loading: false
   });
+  const [restaurants, setRestaurants] = useState([]);
+  const [restaurant, setRestaurant] = useState(0);
   // const [exhibitions, setExhibitions] = useState([]);      //  TODO
+  const [modalShow, setModalShow] = useState(false);
   const [museums, setMuseums] = useState([]);
   const [exhibitsPage, setExhibitsPage] = useState(false);
-
   
-  // ----------- Get Exhibition information --------------
+  
+  
+  // ======== ---->  Get Exhibitions   <---- ==================================
   
   function getExhibitions() {
     
@@ -65,7 +71,34 @@ function Museum(props) {
     getExhibitions()
   }, []);
   
-  // ----------- Render page --------------
+  // ======== ---->  Get Restaurants   <---- ==================================
+  
+  function getRestaurants() {
+    
+    async function fetchRestaurants() {
+      setLoadingStatus({loading: true})
+      
+      // http://flip1.engr.oregonstate.edu:5678/map?city=Richmond&state=VA
+      const url = 'http://flip1.engr.oregonstate.edu:9797/search?'
+      await fetch(url + `city=${props.city}&state=${props.state}`)
+          .then((response) => response.json())
+          .then((data) => {
+            setRestaurants(data)
+          })
+          .catch((err) => {
+            console.log("Error fetching Restaurants", err);
+          })
+          .finally(() => {})
+      
+    }
+    fetchRestaurants().then(() => {setLoadingStatus({loading: false})});
+  }
+  
+  useEffect(() => getRestaurants(), []);
+  
+  
+  // ======== ---->    Render page     <---- ==================================
+  
   return (
       <>
         <Container>
@@ -144,25 +177,35 @@ function Museum(props) {
           </Row>
           
           <Row key={"row6"} className={"g-4 museum-r2"}>
-            <Col md={6}>
+            <Col className={"c-r2"} md={6}>
               <div id={"map-container"} className={"div-r2"}
                    title={`View ${props.museum.name} location, get directions`}>
                 <MuseumMap city={"Richmond"} state={"VA"} />
               </div>
             </Col>
-            <Col md={6}>
-              <div className={"div-r2"}
-                   title={`View Richmond restaurants, pick where to have lunch` +
-                    ` or dinner when visiting the ${props.museum.name}`}>
-                <h6>Local Restaurants</h6>
-                <p>
-                  Information on local restaurants will be shown here,
-                  provided by teammate's microservice.
-                </p>
+            <Col className={"c-r2"} md={6}>
+              <div className={"div-r2"}>
+                <div id={"restaurant-container"}
+                     title={`View Richmond restaurants, pick where to have lunch` +
+                     ` or dinner when visiting the ${props.museum.name}`}>
+                  <Restaurants city={"Richmond"}
+                               state={"VA"}
+                               restaurants={restaurants}
+                               showRestaurant={() => {setModalShow(true)}}
+                               setRestaurant={setRestaurant}
+                               />
+                </div>
               </div>
+
             </Col>
           
           </Row>
+          
+          <RestaurantModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              restaurant={restaurant}
+          />
         
         </Container>
       </>

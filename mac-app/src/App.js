@@ -28,7 +28,10 @@ function App() {
             <Exhibitions setSelectedMuseum={setSelectedMuseum} />
           </Route>
           <Route path={"/Museum"}>
-            <Museum museum={selectedMuseum} key={"M-" + selectedMuseum.id}
+            <Museum museum={selectedMuseum}
+                    key={"M-" + selectedMuseum.id}
+                    city={"Richmond"}
+                    state={"VA"}
             />
           </Route>
           <Route path="/Credits">
