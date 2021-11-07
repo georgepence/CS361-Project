@@ -14,7 +14,7 @@ function MuseumMap(props) {
       setLoadingStatus({loading: true})
 
       // http://flip1.engr.oregonstate.edu:5678/map?city=Richmond&state=VA
-      const mapURL = "http://flip1.engr.oregonstate.edu:5678/map?"
+      const mapURL = "http://flip1.engr.oregonstate.edu:5679/map?"
       
       await fetch(mapURL + `city=${props.city}&state=${props.state}`)
           .then((response) => response.text())
