@@ -145,7 +145,7 @@ function Museum(props) {
           
           <Row key={"row6"} className={"g-4 museum-r2"}>
             <Col md={6}>
-              <div className={"div-r2"}
+              <div id={"map-container"} className={"div-r2"}
                    title={`View ${props.museum.name} location, get directions`}>
                 <MuseumMap city={"Richmond"} state={"VA"} />
               </div>

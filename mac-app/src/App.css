@@ -118,7 +118,7 @@ body {
 }
 
 .museum-r2 {
-  min-height: 150px;
+  min-height: 250px;
 }
 
 .div-r2 {
@@ -165,4 +165,13 @@ body {
   font-size: 22px;
   color: darkblue;
   font-weight: 600;
+}
+
+#center-vertical {
+  position: absolute;
+  top: 40%;
+}
+
+#map-container {
+  position: relative;
 }
