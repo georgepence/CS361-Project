@@ -62,8 +62,7 @@ function Museum(props) {
   // ----------- Render page ---------------------------------------------------
   return (
       <Container>
-        <p>{museum.museumId}</p>
-        
+       
         <BreadCrumbs show={props.show} setShow={props.setShow} museum={museum.name}/>
   
         <Row id={"home-r1"}>
