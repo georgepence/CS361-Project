@@ -3,6 +3,8 @@
 Website: http://flip3.engr.oregonstate.edu:17776`   `(vpn required)
 
 This is a React app, with the following overall structure:
+![](/Users/macpence/Downloads/react-app.png)
+
 
 # Roadmap/Directory Structure:
 
