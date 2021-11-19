@@ -2,8 +2,8 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 
 function CustomNavbar(props) {
   return (
-      <Navbar bg="light" expand="sm">
-        <Container>
+      <Navbar id={"navbar"} bg="light" expand="sm">
+        <Container id={"nav-container"}>
           <Navbar.Brand href="/"
                         title={"Homepage"}>
             Explore Richmond

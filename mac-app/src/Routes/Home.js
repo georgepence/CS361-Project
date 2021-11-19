@@ -1,68 +1,63 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import LoadingSpinner from "../Components/LoadingSpinner";
-import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import LoadingSpinner from "../Components/Helpers/LoadingSpinner";
+import RvaMuseums from "../Components/RvaMuseums";
+import Museum from "../Components/Museum";
+import { Link } from 'react-router-dom';
+import getMuseums from "../DataAccess/getMuseums";
+import GetExhibitions from "../DataAccess/getExhibitions";
 
 function Home(props) {
-  const [loadingStatus, setLoadingStatus] = useState({
-    loading: false
-  });
-  const [museums, setMuseums] = useState([]);
+  
+  // ----------- Set State -----------------------------------------------------
+  
+  // Set environment & vew states
+  const [ loadingStatus, setLoadingStatus ] = useState({ loading: false });
+  const [ show, setShow ] = useState({
+    rvaMuseums: true,
+    museum: false,
+    museumExhibits: false,
+    exhibitions: false
+  })
+  // Set informational states
+  const [ museums, setMuseums ] = useState([]);
+  const [ selectedMuseumId, setSelectedMuseumId ] = useState('');
   
   
-  // ----------- Get Museum information --------------
-  
-  function getMuseums() {
+  // ----------- Get Museum information ----------------------------------------
+  useEffect(() => {
     async function fetchMuseums() {
-      setLoadingStatus({loading: true})
-      await fetch("/api/museums")
-          .then((response) => response.json())
-          .then((data) => {setMuseums(data)})
-          .catch((err) => {
-            console.log("Error fetching Museums", err);
-          })
-          .finally(() => setLoadingStatus({loading: false}))
-      
+      await getMuseums(setLoadingStatus).then((result) => {setMuseums(result)});
     }
-    fetchMuseums().then(() => console.log("TestFetch Finished in Home"));
-  }
+    fetchMuseums().catch(err => console.log("Fetching Museums: ", err))
+  }, []);
   
-  useEffect(() => getMuseums(), []);
   
-  // ----------- Render page --------------
+  // ----------- Render page ---------------------------------------------------
   return (
       <>
-        <Container >
-          <Row id={"home-r1"}>
-            <Col>
-              <h1 id={"home-h1"} className={"mt-2"}>Richmond Virginia Museums</h1>
-            </Col>
-          </Row>
-          <Row ><LoadingSpinner loading={loadingStatus.loading} /></Row>
+        <Container id={"page-container"}>
           
-          <Row xs={1} md={3} className="g-4">
-            {museums.map((museum, idx) => (
-                <Col className={"homeCol"}>
-                  <Link onClick={() => props.setSelectedMuseum({
-                    id: museum.museumId,
-                    name: museum.name,
-                    key: museum.museumId
-                  })} to={{pathname:"/Museum"}}>
-                    <Card className={"museumCard shadow-sm p-3 mb-5 bg-body rounded-3"} title={`Explore the ${museum.name}`}>
-                      <Card.Img variant="top" src="holder.js/100px160" />
-                      <Card.Body>
-                        <Card.Title className={"hTitle"}>{museum.name}</Card.Title>
-                        <Card.Text className={"hText"}>
-                          This is a longer card with supporting text below as a natural
-                          lead-in to additional content. This content is a little bit longer.
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
+          {/* Home page showing all museums, otherwise hidden */}
+          <RvaMuseums museums={museums}
+                      loadingStatus={loadingStatus}
+                      visible={show.rvaMuseums}
+                      setSelectedMuseumId={setSelectedMuseumId}
+                      setShow={setShow}
+          />
+  
+           {/* Single museum page when a museum is selected, otherwise hidden */}
+          {
+            show.museum ?
+                <Museum id={selectedMuseumId} show={show} setShow={setShow} />
+                :
+                ''
+          }
+  
+          
+          
+          
 
-                </Col>
-            ))}
-          </Row>
         </Container>
       </>
   )

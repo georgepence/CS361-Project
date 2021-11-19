@@ -41,6 +41,14 @@ body {
   }
 }
 
+#page-container {
+  margin: 0;
+}
+
+#nav-container {
+  margin-left: 20px;
+}
+
 #home-h1 {
   color: midnightblue;
   position: relative;
@@ -54,12 +62,12 @@ body {
 
 #footer {
   position: relative;
-  height: 56px;
-  background-color: rgb(248, 249, 250);
+  height: 70px;
+  background-color: rgb(245, 245, 246);
   width: 100%;
   text-align: center;
   color: black;
-  padding-top: 15px;
+  padding-top: 20px;
   margin-top: 40px;
 }
 
@@ -83,12 +91,35 @@ body {
   color: midnightblue;
 }
 
+.museum-card:hover {
+  background-color: aliceblue!important;
+  cursor: pointer;
+}
+
 .museum-exhibitions {
   border-top-color: midnightblue;
   border-top-style: solid;
   border-top-width: thin;
   margin-top: 1em;
+  margin-bottom: 0.5em;
   padding-top: 1em;
+}
+
+.museum-r1 {
+  min-height: 250px;
+}
+
+.museum-r2 {
+  min-height: 250px;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding-top: 1em;
+}
+
+.exhibitions-div {
+  border-bottom-color: midnightblue;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
 }
 
 .breadcrumb-item {
@@ -113,14 +144,6 @@ body {
   color: darkslategray;
 }
 
-.museum-r1 {
-  min-height: 250px;
-}
-
-.museum-r2 {
-  min-height: 250px;
-}
-
 .div-r2 {
   background-color: ghostwhite;
   height: 100%;
@@ -135,6 +158,15 @@ body {
 
 #map-container {
   position: relative;
+}
+
+#inner-map-container {
+  position: relative;
+}
+
+#map-museum-header h4, p {
+  text-align: left;
+  margin-left: 15px;
 }
 
 #restaurant-container {
@@ -156,8 +188,8 @@ body {
   float: left;
 }
 
-#m-bc-back {
-  color:steelblue;
+.clickable-breadcrumb {
+  color: #337ebd;
 }
 
 #spacer {
@@ -180,11 +212,22 @@ body {
   font-weight: 600;
 }
 
-#center-vertical {
+#map-error {
   position: absolute;
   top: 40%;
+  right: 25%
 }
 
-.btn-light.r-name {background-color: ghostwhite;
+.map-center-vertical {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+}
 
+#navbar {
+  background-color: rgb(245, 245, 246)!important;
+}
+
+.btn-light.r-name {
+  background-color: ghostwhite;
 }

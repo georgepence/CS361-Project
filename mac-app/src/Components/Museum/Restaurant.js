@@ -2,10 +2,10 @@ import { Button, Row, Col } from 'react-bootstrap';
 
 const Restaurant = (props) => {
   
-  // function showRestaurant(props) {
-  //   props.setRestaurant(props.restaurant);
-  //   props.setModalShow(true);
-  // }
+  function showRestaurant(props) {
+    props.setRestaurant(props.restaurant);
+    props.setModalShow(true);
+  }
   
   return (
       <>

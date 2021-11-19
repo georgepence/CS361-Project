@@ -1,6 +1,4 @@
-import LoadingSpinner from "./LoadingSpinner";
 import Restaurant from "./Restaurant";
-import {useEffect, useState} from "react";
 
 const Restaurants = (props) => {
  
@@ -11,7 +9,7 @@ const Restaurants = (props) => {
         {props.restaurants.length > 0 ? (
             props.restaurants.map((restaurant, index) => (
                 <Restaurant
-                    // key={"R-" + index.toString()}
+                    key={"R-" + index.toString()}
                             restaurant={restaurant}
                             setModalShow={props.setModalShow}
                             showRestaurant={props.showRestaurant}

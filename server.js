@@ -4,18 +4,9 @@ const fs = require('fs');
 const https = require('https');
 const queryDB = require('./database/dbcon');
 
-// const fs = require('fs');
-// const { query } = require('express');
-// const apiRoutes = require('./routes/api/api');
-// const dynamicRoutes = require('./routes/api/dynamic');
-// const testRoutes = require('./routes/testing');
 const museumRoutes = require('./routes/api/museums');
 const exhibitionRoutes = require('./routes/api/exhibitions');
-// const employeesRoutes = require('./routes/api/employees');
-// const reservationsRoutes = require('./routes/api/reservations');
-// const petRoutes = require('./routes/api/pets');
-// const ownerRoutes = require('./routes/api/owners');
-// const roomsRoutes = require('./routes/api/rooms');
+const getMuseumRoutes = require('./routes/api/museum');
 
 const cors = require('cors');
 require('dotenv').config();
@@ -28,44 +19,12 @@ app.use(cors());
 app.use(express.json());
 
 // use routes
-// app.use('/api', apiRoutes);
-// app.use('/api', testRoutes);
-// app.use('/api/dynamic', dynamicRoutes);
-// app.use('/coffee', coffeeRoutes);
+
 app.use('/api/museums', museumRoutes);
 app.use('/api/exhibitions', exhibitionRoutes);
-// app.use('/api/reservations', reservationsRoutes);
-// app.use('/api/rooms', roomsRoutes);
-// app.use('/api/pets', petRoutes);
-// app.use('/api/owners', ownerRoutes);
+app.use('/api/museum', getMuseumRoutes);
 
-app.get('/chico', ((req, res) => {
-  console.log("Found Chico!!")
-  res.send(JSON.stringify("I am a small dog"))
-  
-  async function Chico() {
-    // URL of the image
-    const url = 'https://web.engr.oregonstate.edu/~penceg/roscoe-memorial/images/gate.jpeg?width=450';
-    
-    https.get(url,(res) => {
-      console.log("Status = ", res.statusCode)
-      // Image will be stored at this path
-      const path = `${__dirname}/mac-app/images/cave.jpeg`;
-      console.log("path = ", path)
-      const filePath = fs.createWriteStream(path);
-      res.pipe(filePath);
-      filePath.on('finish',() => {
-        filePath.close();
-        console.log('Download Completed');
-      })
-    })
-  }
-  
-  Chico().then((res) => console.log("yahoo!!", res)).catch(err => console.log(err));
-  
-}))
-
-// server static assets if in production
+// serve static assets if in production
 console.log("running in: ", process.env.NODE_ENV || "development");
 if (process.env.NODE_ENV === 'production'){
   // set static folder

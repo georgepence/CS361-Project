@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const queryDB = require('../../database/dbcon');
+const { query } = require('express');
 
-const app = express();
-// app.use(express.urlencoded({ extended: false }));  // TODO ?
+var app = express();
+app.use(express.urlencoded({ extended: false }));
 
 //  --------------- Get all museums, with selected fields ---------------------
 
 router.get('/', async (req, res) => {
   const fields = 'museumId, name, smallPicture';
   
-  await queryDB(`select ${fields} from Museums`)
+  console.log('In api/museums', query)
+  await queryDB(req.query.query)
       .then(result => res.json(result))
       .catch(err => {
         if (err.sqlMessage) {
