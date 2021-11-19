@@ -10,26 +10,33 @@ function RestaurantModal(props) {
   const [ mapError, setMapError ] = useState('')
   const [ mapCode, setMapCode ] = useState('')
   
+  // reset modal data when it closes
+  function closeModal( hide ) {
+      setMapError('');
+      setMapCode('')
+      hide();
+  }
+  
   useEffect( () => {
-        async function fetchMap(id) {
+        async function fetchMap(props) {
           setLoadingStatus({loading: true})
           let status = { error: false };
           let fetchMapURL = "http://flip1.engr.oregonstate.edu:5679/map?";
-          
+          console.log("props=", props.restaurant.street, props.restaurant.city)
           let r = {}
           try{
             r.street = props.restaurant.street.split(' ').join('+');
             r.city = props.restaurant.city.split(' ').join('+');
-            
+            console.log("r = ", r, !status.error)
           } catch {
-
+            
             setMapError('Unable to fetch Map');
             status.error = true;
           }
 
           // GET request to teammate's micro service
           fetchMapURL += `city=${r.city}&state=${props.restaurant.state}&streetAddr=${r.street}`
-          
+          console.log(fetchMapURL)
           if (!status.error) {
             await fetch(fetchMapURL)
                 .then((response) => response.text())
@@ -43,10 +50,10 @@ function RestaurantModal(props) {
                 .finally(() => {})
           }
         }
-        fetchMap(props.id)
+        fetchMap(props)
             .finally(() => setLoadingStatus({ loading: false }))
       }
-      , [props.id]);
+      , [props]);
   
   return (
       <Modal
@@ -80,7 +87,7 @@ function RestaurantModal(props) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button onClick={() => closeModal(props.onHide)}>Close</Button>
         </Modal.Footer>
       </Modal>
   );

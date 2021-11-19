@@ -113,12 +113,16 @@ function Museum(props) {
           </Col>
         
         </Row>
-        
-        <RestaurantModal
+  
+        {modalShow ?
+          <RestaurantModal
             show={modalShow}
             onHide={() => setModalShow(false)}
             restaurant={restaurant}
         />
+            :
+            ''
+        }
         
       </Container>
  
