@@ -32,7 +32,7 @@ return (
                           })
                         }}
                   >
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/images/card/${museum.smallPicture}`} />
                     <Card.Body>
                       <Card.Title className={"hTitle"}>{museum.name}</Card.Title>
                       <Card.Text className={"hText"}>
