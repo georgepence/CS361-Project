@@ -35,7 +35,7 @@ function MuseumExhibits(props) {
             </div>
             :
           <div hidden={!props.visible}
-              className={props.options ? '' : 'museum-exhibitions'}>
+              className={props.options ? '' : 'exhibitions-div'}>
     
           {museums.map((museum) => (
               <Row key={museum.id} className={props.options ?
