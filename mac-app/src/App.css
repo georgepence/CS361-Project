@@ -274,3 +274,15 @@ body {
   padding: 0;
   margin: 0;
 }
+
+@media screen and (min-width: 992px) {
+  #museum-banner-container {
+    min-height: 304px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #museum-banner-container {
+    min-height: 224px;
+  }
+}
