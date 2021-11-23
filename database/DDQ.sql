@@ -67,7 +67,7 @@ insert into `Exhibitions` values (15, 'Hot Wheels: Race to Win', 'Buckle up and 
 insert into `Exhibitions` values (16, 'Breathing Places: Parks & Recreation in Richmond', '', '2021-05-05', '202-01-30', 4);
 insert into `Exhibitions` values (17, 'The Valentine Studio Project', "Reinterpreting Valentine's sculptures, including Lost Cause works" , null, null, 4);
 
-insert into `Exhibitions` values (18 'Jeremy Toussaint-Baptise: Set It Off', '', '2021-10-29', '2022-06-19', 5);
+insert into `Exhibitions` values (18, 'Jeremy Toussaint-Baptise: Set It Off', '', '2021-10-29', '2022-06-19', 5);
 insert into `Exhibitions` values (19, 'Dineo Seshee Bopape: Ile Aye, Moya, LÀ, Ndokh…Harmonic Conversions…mm', '', '2021-09-24', '2021-12-19', 5);
 insert into `Exhibitions` values (21, 'Iprahim Ahmed: It Will Always Come Back To You', '', '2021-07-23', '2021-11-07', 5);
 insert into `Exhibitions` values (20, 'Doing Language: Word Work', '', '2021-12-10', '2022-01-19', 5);
