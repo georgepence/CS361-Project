@@ -1,4 +1,4 @@
-// props = { museum: {}, setMapLoadingStatus }
+// props => { museum: {}, setMapLoadingStatus }
 
 function getMap(museum, setMapLoadingStatus) {
   
