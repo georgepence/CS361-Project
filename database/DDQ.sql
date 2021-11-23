@@ -49,38 +49,38 @@ insert into `Museums` values (7, 'Branch Museum of Architecture and Design', 'Ot
 insert into `Museums` values (8, 'Virginia Holocaust Museum', 'History', 'web_contact@vaholocaust.org', '(804) 257-5400', '2000 East Cary Street, Richmond, VA 23223', 'https://www.vaholocaust.org', 'holocaust.jpg', 'holocaust.jpg', 'Opened in 1997, the Virginia Holocaust Museum preserves the stories of Holocaust survivors and their experiences through both permanent and temporary exhibitions.   Located in the historic American Tobacco Company Warehouse in Shockoe Slip, the Museum averaged 42,000 visitors annually (prior to COVID).   ');
 
 insert into `Exhibitions` values (1, 'Man Ray: The Paris Years', '', '2021-10-30', '2022-02-21', 1);
-insert into `Exhibitions` values (9, 'Ansel Adams: Compositions in Nature', '', '2021-09-25', '2022-01-02', 1);
-insert into `Exhibitions` values (17, 'Frank Short: Out of the Shadows', '', '2021-06-12', '2022-01-09', 1);
-insert into `Exhibitions` values (9, 'John Covert: Dada Photographer', '', '2021-11-13', '2022-05-07', 1);
-insert into `Exhibitions` values (17, 'Fellowship Exhibitions', '', '2021-06-21', '2022-01-31', 1);
-insert into `Exhibitions` values (9, 'Early Childhood Annual Student Exhibition', '', '2021-09-09', '2022-01-02', 1);
-insert into `Exhibitions` values (17, "It's Egypt! Interactive Gallery Exhibition", '', '2021-08-01', '2022-02-01', 1);
-insert into `Exhibitions` values (17, "Whistler to Cassat: American Painters in France", '', '2022-04-16', '2022-07-31', 1);
-insert into `Exhibitions` values (17, "Tsherin Sherpa: Spirits", '', '2022-02-19', '2022-10-16', 1);
-insert into `Exhibitions` values (17, "Across Time: Robinson House, Its Land and People", '', null, null, 1);
-insert into `Exhibitions` values (2, 'The Story of Virginia', 'Interpreting 16,000 years of Virginia history', null, null, 2);
-insert into `Exhibitions` values (10, 'Partners in History', 'In partnership with the Black History Museum', null, null, 2);
-insert into `Exhibitions` values (3, 'Skin: Living Armor, Evolving Identity', '', '2022-04-30', '2023-01-15', 3);
-insert into `Exhibitions` values (19, 'Planet Shark: Predator or Prey', '', '2022-05-28', '2022-09-05', 3);
-insert into `Exhibitions` values (11, 'Hot Wheels: Race to Win', 'Buckle up and race!', '2021-09-25', '2022-01-23', 3);
+insert into `Exhibitions` values (2, 'Ansel Adams: Compositions in Nature', '', '2021-09-25', '2022-01-02', 1);
+insert into `Exhibitions` values (3, 'Frank Short: Out of the Shadows', '', '2021-06-12', '2022-01-09', 1);
+insert into `Exhibitions` values (4, 'John Covert: Dada Photographer', '', '2021-11-13', '2022-05-07', 1);
+insert into `Exhibitions` values (5, 'Fellowship Exhibitions', '', '2021-06-21', '2022-01-31', 1);
+insert into `Exhibitions` values (6, 'Early Childhood Annual Student Exhibition', '', '2021-09-09', '2022-01-02', 1);
+insert into `Exhibitions` values (7, "It's Egypt! Interactive Gallery Exhibition", '', '2021-08-01', '2022-02-01', 1);
+insert into `Exhibitions` values (8, "Whistler to Cassat: American Painters in France", '', '2022-04-16', '2022-07-31', 1);
+insert into `Exhibitions` values (9, "Tsherin Sherpa: Spirits", '', '2022-02-19', '2022-10-16', 1);
+insert into `Exhibitions` values (10, "Across Time: Robinson House, Its Land and People", '', null, null, 1);
+insert into `Exhibitions` values (11, 'The Story of Virginia', 'Interpreting 16,000 years of Virginia history', null, null, 2);
+insert into `Exhibitions` values (13, 'Partners in History', 'In partnership with the Black History Museum', null, null, 2);
+insert into `Exhibitions` values (12, 'Skin: Living Armor, Evolving Identity', '', '2022-04-30', '2023-01-15', 3);
+insert into `Exhibitions` values (14, 'Planet Shark: Predator or Prey', '', '2022-05-28', '2022-09-05', 3);
+insert into `Exhibitions` values (15, 'Hot Wheels: Race to Win', 'Buckle up and race!', '2021-09-25', '2022-01-23', 3);
 
-insert into `Exhibitions` values (4, 'Breathing Places: Parks & Recreation in Richmond', '', '2021-05-05', '202-01-30', 4);
-insert into `Exhibitions` values (12, 'The Valentine Studio Project', "Reinterpreting Valentine's sculptures, including Lost Cause works" , null, null, 4);
+insert into `Exhibitions` values (16, 'Breathing Places: Parks & Recreation in Richmond', '', '2021-05-05', '202-01-30', 4);
+insert into `Exhibitions` values (17, 'The Valentine Studio Project', "Reinterpreting Valentine's sculptures, including Lost Cause works" , null, null, 4);
 
-insert into `Exhibitions` values (5, 'Jeremy Toussaint-Baptise: Set It Off', '', '2021-10-29', '2022-06-19', 5);
-insert into `Exhibitions` values (13, 'Dineo Seshee Bopape: Ile Aye, Moya, LÀ, Ndokh…Harmonic Conversions…mm', '', '2021-09-24', '2021-12-19', 5);
+insert into `Exhibitions` values (18 'Jeremy Toussaint-Baptise: Set It Off', '', '2021-10-29', '2022-06-19', 5);
+insert into `Exhibitions` values (19, 'Dineo Seshee Bopape: Ile Aye, Moya, LÀ, Ndokh…Harmonic Conversions…mm', '', '2021-09-24', '2021-12-19', 5);
 insert into `Exhibitions` values (21, 'Iprahim Ahmed: It Will Always Come Back To You', '', '2021-07-23', '2021-11-07', 5);
-insert into `Exhibitions` values (5, 'Doing Language: Word Work', '', '2021-12-10', '2022-01-19', 5);
-insert into `Exhibitions` values (13, 'Gideon Appah', '', '2022-01-21', '2022-06-19', 5);
-insert into `Exhibitions` values (21, 'Sila Chanto & Belkis Ramírez: Here I Stay', '', '2022-01-21', '2022-06-19', 5);
+insert into `Exhibitions` values (20, 'Doing Language: Word Work', '', '2021-12-10', '2022-01-19', 5);
+insert into `Exhibitions` values (22, 'Gideon Appah', '', '2022-01-21', '2022-06-19', 5);
+insert into `Exhibitions` values (23, 'Sila Chanto & Belkis Ramírez: Here I Stay', '', '2022-01-21', '2022-06-19', 5);
 
 
-insert into `Exhibitions` values (6, "A People's Contest: Struggles for a Nation and Freedom", '', null, null, 6);
+insert into `Exhibitions` values (24, "A People's Contest: Struggles for a Nation and Freedom", '', null, null, 6);
 
-insert into `Exhibitions` values (7, 'Joanna Tyka: Cityscapes RVA', '', '2021-10-14', '2021-12-31', 7);
-insert into `Exhibitions` values (15, 'Helper', '2021 Design Build Challenge Winner', '2021-09-01', '2021-12-31', 7);
-insert into `Exhibitions` values (23, 'Carlton Abbot Illustrations', '', null, null, 7);
+insert into `Exhibitions` values (25, 'Joanna Tyka: Cityscapes RVA', '', '2021-10-14', '2021-12-31', 7);
+insert into `Exhibitions` values (26, 'Helper', '2021 Design Build Challenge Winner', '2021-09-01', '2021-12-31', 7);
+insert into `Exhibitions` values (27, 'Carlton Abbot Illustrations', '', null, null, 7);
 
-insert into `Exhibitions` values (8, 'The Holocaust', 'The complex and sobering history of the Holocaust', null, null, 8);
+insert into `Exhibitions` values (28, 'The Holocaust', 'The complex and sobering history of the Holocaust', null, null, 8);
 
 insert into `LastUpdate` values ('2021-10-13')
