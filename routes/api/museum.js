@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 router.get('/', async (req, res) => {
   const fields = 'museumId, name, smallPicture';
   
-  console.log('In api/museums', query)
+  console.log('In api/museum.js', query)
   await queryDB(req.query.query)
       .then(result => res.json(result))
       .catch(err => {

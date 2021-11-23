@@ -1,11 +1,11 @@
 import Exhibit from "./Exhibit";
 
 const Exhibits = (props) => {
-  
+
   return (
       <>
         {props.exhibits.map((exhibit) => (
-          <Exhibit key={'e-' + exhibit.id}
+          <Exhibit key={props.museumId + '-' + exhibit.id}
                    exhibit={exhibit.exhibition}
           />
         ))}

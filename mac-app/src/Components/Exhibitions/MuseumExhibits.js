@@ -27,50 +27,55 @@ function MuseumExhibits(props) {
   }, [props]);
   
   return (
-      
-      <div hidden={!props.visible}
-           className={ props.options ? '' : 'museum-exhibitions' }>
+      <>
   
-        <LoadingSpinner loading={loadingStatus.loading}/>
-
-        {museums.map((museum) => (
-            <Row className={props.options ?
-                'museum-r museum-r1 g-4' :
-                'museum-exhibitions'
-            }>
-              <Col md={5}>
-                <div>
-                  {props.setSelectedMuseum ?
-                      <Link id={"mus-exh-link"}
-                            key={'mus-' + museum.id}
-                            onClick={() => props.setSelectedMuseum(museum.id)}
-                            to={{pathname: "/Museum_Old"}}>
-                
-                        {museum.name}
-              
-                      </Link>
-              
-                      :
-              
-                      <p key={'mus-' + museum.id}>{museum.name}</p>
-                  }
-                </div>
-              </Col>
-      
-              <Col md={7}>
-                <div>
+        { loadingStatus.loading ?
+            <div>
+              <LoadingSpinner key={"l"} loading={loadingStatus.loading}/>
+            </div>
+            :
+          <div hidden={!props.visible}
+              className={props.options ? '' : 'museum-exhibitions'}>
+    
+          {museums.map((museum) => (
+              <Row key={museum.id} className={props.options ?
+                  'museum-r museum-r1 g-4' :
+                  'museum-exhibitions'
+              }>
+                <Col key={"c-" + museum.id} md={5}>
+                  <div>
+                    {props.setSelectedMuseum ?
+                        <Link id={"mus-exh-link"}
+                              onClick={() => props.setSelectedMuseum(museum.id)}
+                              to={{pathname: "/Museum_Old"}}>
+                    
+                          {museum.name}
                   
-                  <Exhibits exhibits={museum.exhibitions}
-                            museumId={museum.id}
-                            key={'m-' + museum.id}
-                  />
-        
-                </div>
-              </Col>
-            </Row>
-        ))}
-
-      </div>
+                        </Link>
+                  
+                        :
+                  
+                        <p>{museum.name}</p>
+                    }
+                  </div>
+                </Col>
+          
+                <Col key={"c2-" + museum.id} md={7}>
+                  <div>
+              
+                    <Exhibits exhibits={museum.exhibitions}
+                              museumId={museum.id}
+                              key={'m-' + museum.id}
+                    />
+            
+                  </div>
+                </Col>
+              </Row>
+          ))}
+  
+        </div>}
+      </>
+      
   )
   
 }

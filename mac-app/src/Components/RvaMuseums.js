@@ -1,6 +1,5 @@
 import {Card, Col, Container, Row} from "react-bootstrap";
 import LoadingSpinner from "./Helpers/LoadingSpinner";
-import {Link} from "react-router-dom";
 
 function RvaMuseums(props) {
 
@@ -18,7 +17,7 @@ return (
         
         <Row xs={1} md={3} className="g-4">
           {props.museums.map((museum, idx) => (
-              <Col className={"homeCol"}>
+              <Col key={idx} className={"homeCol"}>
                 <div>
                   <Card className={"museum-card shadow-sm p-3 mb-5 bg-body rounded-3"}
                         title={`Explore the ${museum.name}`}
@@ -36,8 +35,7 @@ return (
                     <Card.Body>
                       <Card.Title className={"hTitle"}>{museum.name}</Card.Title>
                       <Card.Text className={"hText"}>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
+                        {museum.description}
                       </Card.Text>
                     </Card.Body>
                   </Card>

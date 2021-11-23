@@ -55,6 +55,25 @@ body {
   float: left;
 }
 
+#museum-h1-div {
+  background: rgba(0, 0, 0, 0.17);
+  border-radius: 5px;
+  position: absolute;
+  left: 0.5em;
+  top: 0.15em;
+  padding: 0 10px 0 10px;
+}
+
+#museum-h1 {
+  margin: 0 0 0 0;
+  color: white;
+
+}
+
+#modal-title-1 {
+  margin-right: 2em;
+}
+
 #home-r1 {
   position: relative;
   width: 100%;
@@ -65,7 +84,7 @@ body {
   height: 70px;
   background-color: rgb(245, 245, 246);
   width: 100%;
-  text-align: center;
+  /*text-align: center;*/
   color: black;
   padding-top: 20px;
   margin-top: 40px;
@@ -73,6 +92,15 @@ body {
 
 #footer-text {
   position: relative;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#admin {
+  position: relative;
+  right: 1em;
+  text-align: right;
+  color: darkgray;
 }
 
 .credits {
@@ -100,17 +128,6 @@ body {
   border-top-color: midnightblue;
   border-top-style: solid;
   border-top-width: thin;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  padding-top: 1em;
-}
-
-.museum-r1 {
-  min-height: 250px;
-}
-
-.museum-r2 {
-  min-height: 250px;
   margin-top: 1em;
   margin-bottom: 0.5em;
   padding-top: 1em;
@@ -173,13 +190,27 @@ body {
   padding: 1em;
   position: relative;
 }
+
 .museum-r {
   background-color: ghostwhite;
   margin-bottom: 1em;
+  margin-right: 0!important;
+  margin-left: 0!important;
 }
 
 .museum-r h3 {
   color: cadetblue;
+}
+
+.museum-r1 {
+  min-height: 250px;
+}
+
+.museum-r2 {
+  min-height: 250px;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding-top: 1em;
 }
 
 .mus-h1 {
@@ -230,4 +261,16 @@ body {
 
 .btn-light.r-name {
   background-color: ghostwhite;
+}
+
+#museum-info-container {
+  padding: 0;
+  margin: 0;
+  min-height: 250px;
+}
+
+#museum-banner-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
 }

@@ -1,11 +1,8 @@
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import LoadingSpinner from "../Components/Helpers/LoadingSpinner";
 import RvaMuseums from "../Components/RvaMuseums";
 import Museum from "../Components/Museum";
-import { Link } from 'react-router-dom';
 import getMuseums from "../DataAccess/getMuseums";
-import GetExhibitions from "../DataAccess/getExhibitions";
 
 function Home(props) {
   
@@ -39,12 +36,17 @@ function Home(props) {
         <Container id={"page-container"}>
           
           {/* Home page showing all museums, otherwise hidden */}
-          <RvaMuseums museums={museums}
-                      loadingStatus={loadingStatus}
-                      visible={show.rvaMuseums}
-                      setSelectedMuseumId={setSelectedMuseumId}
-                      setShow={setShow}
+          {
+            show.rvaMuseums ?
+            <RvaMuseums museums={museums}
+                       loadingStatus={loadingStatus}
+                       visible={show.rvaMuseums}
+                       setSelectedMuseumId={setSelectedMuseumId}
+                       setShow={setShow}
           />
+                :
+                ''
+          }
   
            {/* Single museum page when a museum is selected, otherwise hidden */}
           {

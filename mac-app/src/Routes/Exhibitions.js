@@ -1,7 +1,7 @@
 import { Container, Row, Col, Breadcrumb, Button } from "react-bootstrap";
 // import { useEffect, useState } from "react";                 // Todo
 // import LoadingSpinner from "../Components/LoadingSpinner";   // Todo
-import MuseumExhibits from "./Exhibitions/MuseumExhibits";
+import MuseumExhibits from "../Components/Exhibitions/MuseumExhibits";
 
 function Exhibitions(props) {
   // const [exhibitions, setExhibitions] = useState([]);    // TODO

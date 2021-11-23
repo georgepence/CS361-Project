@@ -6,10 +6,10 @@ function MuseumInfo(props) {
       <div id={"museum-info-div"} hidden={!props.visible} >
           <Row className={"museum-r museum-r1 g-4"}>
             <Col>
-              <h6>Museum Description</h6>
-              <h6>Hours</h6>
-              <h6>Location</h6>
+              <h6>{props.museum.description || 'Description goes here'}</h6>
+
               <Button variant={"outline-secondary"}
+                      className={"mt-3"}
                       onClick={() => {
                         props.setShow({
                           rvaMuseums: false,

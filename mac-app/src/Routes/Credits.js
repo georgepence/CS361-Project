@@ -86,7 +86,6 @@ function Credits() {
                   </Col>
                 </Row>
               </Container>
-            {/*</form>*/}
           </Modal.Body>
         </Modal>
       

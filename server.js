@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const https = require('https');
+// const https = require('https');    // TODO
 const queryDB = require('./database/dbcon');
 
 const museumRoutes = require('./routes/api/museums');
