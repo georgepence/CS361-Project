@@ -13,7 +13,7 @@ const fetchExhibitsQuery = function getExhibitions(options) {
   } else {
     whereClause = 'where '
     if (options.date) {
-      whereClause += ``
+      whereClause += `(${options.date} between startDate and endDate or endDate is null)`
       if (options.id) whereClause += ' and '
     }
     if (options.id) whereClause += `Museums.museumId=${options.id}`;
