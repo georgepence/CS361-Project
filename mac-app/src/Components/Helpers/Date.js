@@ -5,7 +5,9 @@ function Date(props){
       <>
         <Row className={'mt-1 border-1'}>
           <Col md={6}>
-            <label htmlFor={props.id} className="col-form-label">
+            <label htmlFor={props.id}
+                   className="col-form-label" id={"date-label"}
+            >
               {props.label}
             </label>
           </Col>
@@ -13,11 +15,10 @@ function Date(props){
             <input
                 name={props.name}
                 id={props.id}
-                className="form-control"
+                className="form-control p-1"
                 type="date"
                 value={props.value}
                 onChange={e=> props.setValue(e.target.value)}
-                min={props.min}
             />
           </Col>
         </Row>

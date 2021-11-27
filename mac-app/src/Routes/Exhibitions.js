@@ -12,38 +12,44 @@ function Exhibitions(props) {
   // ----------- Render page --------------
   return (
       <>
-        <Container >
+        <Container>
           <Breadcrumb>
             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
             <Breadcrumb.Item active>Exhibitions</Breadcrumb.Item>
           </Breadcrumb>
 
-          <div id={"exhibition-set-date"} className={"shadow"}>
-            <Row>
-            <Col md={2}></Col>
-            <Col md={7}>
-              <Date name={"visitDate"}
-                    id={"visitDate"}
-                    value={visitDate}
-                    setValue={setVisitDate}
-                    label={"View Exhibitions for what visit date?"}
+          <Row>
+            <Col md={4}></Col>
+            <Col md={8}>
+              <Row id={'exhibition-set-date'}>
 
-              />
+                  <Col md={8}>
+                    <Date name={"visitDate"}
+                          id={"visitDate"}
+                          value={visitDate}
+                          setValue={setVisitDate}
+                          label={"Filter by visit date"}
+
+                    />
+                  </Col>
+                  <Col >
+                    <Button
+                        className={"mb-1 mt-1 mr-1 shadow"}
+                        variant="outline-primary"
+                        onClick={() => {
+                          setVisitDate('')
+                        }}
+                        title={"View exhibitions available at a future date"}
+                        size={'sm'}
+                    >
+                      View all dates
+                    </Button>
+                  </Col>
+
+              </Row>
             </Col>
-            <Col md={3}>
-              <Button
-                  className={"mb-3 mt-1 mr-5 shadow"}
-                  variant="outline-primary"
-                  onClick={() => {setVisitDate('')}}
-                  title={"View exhibitions available at a future date"}
-              >
-                View all dates
-              </Button>
-            </Col>
+
           </Row>
-          </div>
-
-
 
 
           <Row id={"home-r1"}>
@@ -51,9 +57,9 @@ function Exhibitions(props) {
               <h1 id={"home-h1"} className={"mt-2"}>Exhibitions</h1>
             </Col>
           </Row>
-          
+
           <MuseumExhibits visible={true}
-                          options={ visitDate ? { date: visitDate } : { } }
+                          options={visitDate ? {date: visitDate} : {}}
           />
 
         </Container>

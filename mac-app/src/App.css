@@ -302,6 +302,11 @@ body {
   margin: 0;
   border-style: solid;
   border-width: thin;
-  border-color: darkblue;
+  border-color: darkgreen;
   border-radius: 5px;
+  box-shadow: black;
+}
+
+#date-label {
+  font-size: 15px;
 }
