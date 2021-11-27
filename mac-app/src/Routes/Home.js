@@ -19,6 +19,7 @@ function Home(props) {
   // Set informational states
   const [ museums, setMuseums ] = useState([]);
   const [ selectedMuseumId, setSelectedMuseumId ] = useState('');
+  const [ largePicture, setLargePicture ] = useState('');
   
   
   // ----------- Get Museum information ----------------------------------------
@@ -42,6 +43,7 @@ function Home(props) {
                        loadingStatus={loadingStatus}
                        visible={show.rvaMuseums}
                        setSelectedMuseumId={setSelectedMuseumId}
+                        setLargePicture={setLargePicture}
                        setShow={setShow}
           />
                 :
@@ -51,7 +53,10 @@ function Home(props) {
            {/* Single museum page when a museum is selected, otherwise hidden */}
           {
             show.museum ?
-                <Museum id={selectedMuseumId} show={show} setShow={setShow} />
+                <Museum id={selectedMuseumId}
+                        show={show}
+                        setShow={setShow}
+                        largePicture={largePicture}/>
                 :
                 ''
           }

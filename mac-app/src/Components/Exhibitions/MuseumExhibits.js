@@ -8,6 +8,7 @@ import LoadingSpinner from "../Helpers/LoadingSpinner";
 function MuseumExhibits(props) {
   
   const [museums, setMuseums] = useState([]);
+  const [allMuseums, setAllMuseums] = useState(true);
   const [loadingStatus, setLoadingStatus] = useState({
     loading: false
   });
@@ -16,6 +17,7 @@ function MuseumExhibits(props) {
   useEffect( () =>{
     async function fetchExhibits(options) {
       setLoadingStatus({ loading: true });
+      setAllMuseums(!options.id);
       await GetExhibitions(options).then((result) => {
         console.log(result);
         setMuseums(result);
@@ -25,7 +27,8 @@ function MuseumExhibits(props) {
     fetchExhibits(props.options)
         .catch(err => console.log("Error fetching Exhibits: ", err))
   }, [props]);
-  
+
+  // ----------- Render Exhibition Info --------------
   return (
       <>
   
@@ -38,16 +41,17 @@ function MuseumExhibits(props) {
               className={props.options ? '' : 'exhibitions-div'}>
     
           {museums.map((museum) => (
-              <Row key={museum.id} className={props.options ?
+              <Row key={museum.id} className={props.options.id ?
                   'museum-r museum-r1 g-4' :
                   'museum-exhibitions'
               }>
                 <Col key={"c-" + museum.id} md={5}>
                   <div>
-                    {props.setSelectedMuseum ?
+                    {allMuseums ?
                         <Link id={"mus-exh-link"}
-                              onClick={() => props.setSelectedMuseum(museum.id)}
-                              to={{pathname: "/Museum_Old"}}>
+                              className={"museum-exh-name"}
+                              // onClick={() => props.setSelectedMuseum(museum.id)}
+                              to={{pathname: `/Museum?id=${museum.id}`}}>
                     
                           {museum.name}
                   
@@ -55,7 +59,7 @@ function MuseumExhibits(props) {
                   
                         :
                   
-                        <p>{museum.name}</p>
+                        <p className={"museum-exh-name"}>{museum.name}</p>
                     }
                   </div>
                 </Col>

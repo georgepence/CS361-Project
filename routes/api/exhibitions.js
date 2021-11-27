@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   console.log("Request Query = ", req.query.query)
   await queryDB(req.query.query)
       .then(result => {
-        console.log("In server exhibitions", result)
+
         res.json(result)
       })
       .catch(err => {

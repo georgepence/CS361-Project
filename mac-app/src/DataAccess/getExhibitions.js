@@ -1,7 +1,8 @@
 import {fetchExhibitsQuery} from "./queries";
 
 const GetExhibitions = async (options) => {
-  
+
+  console.log("In getExhibitions, options = ", options)
   const url = `/api/exhibitions?query=${fetchExhibitsQuery(options)}`
   
   console.log("In GetExhibitions, url = ", url);    // todo
@@ -30,7 +31,9 @@ const GetExhibitions = async (options) => {
             }
             rvaMuseums[index].exhibitions.push({
               exhibition: data[i].exhibition,
-              id: data[i].exhId
+              id: data[i].exhId,
+              startDate: data[i].startDate,
+              endDate: data[i].endDate
             })
           }
           res(rvaMuseums)

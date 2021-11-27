@@ -6,23 +6,24 @@ const fetchMuseumQuery = function getMuseumInfo(id) {
 
 const fetchExhibitsQuery = function getExhibitions(options) {
   let whereClause
-  console.log("In queries.js, options = ", options || "No Options", !options)
+  console.log("In queries.js, options = ", options || "No Options", (!options.id && !options.date))
   
-  if (!options) {
+  if (!options.id && !options.date) {
     whereClause = '';
   } else {
     whereClause = 'where '
     if (options.date) {
-      whereClause += `(${options.date} between startDate and endDate or endDate is null)`
+      whereClause += `('${options.date}' between startDate and endDate or endDate is null)`
       if (options.id) whereClause += ' and '
     }
     if (options.id) whereClause += `Museums.museumId=${options.id}`;
   }
   
   return "select Museums.name as museum, Museums.museumId as id, " +
-  " Exhibitions.exhibitName as exhibition, Exhibitions.exhibitId as " +
-  "exhId from Museums left join Exhibitions on Museums.museumId = " +
-  `Exhibitions.museumId ${whereClause} order by museum;`
+      "Exhibitions.startDate as startDate, Exhibitions.endDate as endDate, " +
+      " Exhibitions.exhibitName as exhibition, Exhibitions.exhibitId as " +
+      "exhId from Museums left join Exhibitions on Museums.museumId = " +
+      `Exhibitions.museumId ${whereClause} order by museum;`
 }
 
 const fetchAddrQuery = function getAddress(id) {

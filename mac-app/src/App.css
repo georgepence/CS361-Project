@@ -286,3 +286,22 @@ body {
     min-height: 224px;
   }
 }
+
+.exhibit-info {
+  font-size: small;
+  font-weight: 350;
+}
+
+.museum-exh-name {
+  color: darkblue;
+  font-weight: 425;
+}
+
+#exhibition-set-date {
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: thin;
+  border-color: darkblue;
+  border-radius: 5px;
+}

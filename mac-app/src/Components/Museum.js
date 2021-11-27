@@ -69,7 +69,7 @@ function Museum(props) {
         {/*  <Col>*/}
         
         <div id={"museum-banner-container"}>
-            <Image src={`${process.env.PUBLIC_URL}/images/banner/${museum.largePicture}`}
+            <Image src={`${process.env.PUBLIC_URL}/images/banner/${props.largePicture}`}
                    fluid
             />
           <div id={"museum-h1-div"}>

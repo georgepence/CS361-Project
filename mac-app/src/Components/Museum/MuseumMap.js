@@ -29,6 +29,8 @@ function MuseumMap(props) {
       let result = await fetch(`/api/exhibitions?query=${fetchAddrQuery(id)}`)
           .then(result => result.json());
 
+      console.log("Address fetched, result = ", result)
+
       let address = result[0];
       setMuseumInfo(result[0]);
       

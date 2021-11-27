@@ -23,6 +23,7 @@ return (
                         title={`Explore the ${museum.name}`}
                         onClick={() => {
                           props.setSelectedMuseumId(museum.museumId)
+                          props.setLargePicture(museum.largePicture)
                           props.setShow({
                             rvaMuseums: false,
                             museum: true,

@@ -7,6 +7,8 @@ const Exhibits = (props) => {
         {props.exhibits.map((exhibit) => (
           <Exhibit key={props.museumId + '-' + exhibit.id}
                    exhibit={exhibit.exhibition}
+                   startDate={exhibit.startDate}
+                   endDate={exhibit.endDate}
           />
         ))}
       </>
