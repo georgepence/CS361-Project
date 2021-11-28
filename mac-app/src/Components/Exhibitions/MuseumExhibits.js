@@ -33,7 +33,6 @@ function MuseumExhibits(props) {
   // ----------- Render Exhibition Info --------------
   return (
       <>
-        <p>{`Props = ${props.filterVisible}`}</p>
   
         { loadingStatus.loading ?
             <div>

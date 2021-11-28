@@ -19,15 +19,19 @@ function getMap(data) {
         
         if (!error) {
           fetch(mapURL + `city=${d.city}&state=${data.state}&streetAddr=${d.street}`)
-              .then((response) => response.text())
-              .then((result) => {
-                res(result)
+              .then((response) => {
+                if (response.status > 400) {
+                  rej('Unable to fetch Map data (fetch error)')
+                } else {
+                  response.text().then(result => {
+                    res(result)
+                  })
+                }
               })
               .catch((err) => {
-                rej('<p>Unable to fetch Map data (fetch error)</p>')
+                rej('Unable to fetch Map data (fetch error)')
               })
         }
-        
       }
   )
 }

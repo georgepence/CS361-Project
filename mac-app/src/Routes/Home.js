@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import RvaMuseums from "../Components/RvaMuseums";
+import Exhibitions from "./Exhibitions";
 import Museum from "../Components/Museum";
 import getMuseums from "../DataAccess/getMuseums";
 
@@ -60,10 +61,18 @@ function Home(props) {
                 :
                 ''
           }
-  
-          
-          
-          
+
+          {/* Single museum page when a museum is selected, otherwise hidden */}
+          {
+            show.exhibitions ?
+                <Exhibitions setMuseum={setSelectedMuseumId}
+                        show={show}
+                        setShow={setShow}
+                />
+                :
+                ''
+          }
+
 
         </Container>
       </>
