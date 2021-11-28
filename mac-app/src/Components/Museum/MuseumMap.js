@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../Helpers/LoadingSpinner";
 import Parser from 'html-react-parser'
 import { fetchAddrQuery } from "../../DataAccess/queries";
+import getMap from "../../DataAccess/getMap";
 
 function MuseumMap(props) {
   
@@ -31,35 +32,44 @@ function MuseumMap(props) {
 
       console.log("Address fetched, result = ", result)
 
-      let address = result[0];
+      // let address = result[0];  todo
       setMuseumInfo(result[0]);
+
+      await getMap(result[0])
+          // .then((response) => response.text())
+          .then((data) => {
+            setMapCode(data)
+          })
+          .catch((err) => {
+            setMapError(err);
+          })
       
-      let m = {}
-      try{
-        m.street = address.street.split(' ').join('+');
-        m.city = address.city.split(' ').join('+');
-        
-      } catch {
-        console.log("MuseumMap error parsing address: id=", id, " addr=", address);
-        setMapError('Unable to fetch Map');
-        status.error = true;
-      }
-      console.log("A D D R E S S =", address, address.state)
-      // GET request to teammate's micro service
-      fetchMapURL += `city=${m.city}&state=${address.state}&streetAddr=${m.street}`
-      
-      if (!status.error) {
-        await fetch(fetchMapURL)
-            .then((response) => response.text())
-            .then((data) => {
-              setMapCode(data)
-            })
-            .catch((err) => {
-              console.log("In MuseumMap- error fetching Map", err);
-              setMapError('Unable to fetch Map');
-            })
-            .finally(() => {})
-      }
+      // let m = {}
+      // try{
+      //   m.street = address.street.split(' ').join('+');
+      //   m.city = address.city.split(' ').join('+');
+      //
+      // } catch {
+      //   console.log("MuseumMap error parsing address: id=", id, " addr=", address);
+      //   setMapError('Unable to fetch Map');
+      //   status.error = true;
+      // }
+      // console.log("A D D R E S S =", address, address.state)
+      // // GET request to teammate's micro service
+      // fetchMapURL += `city=${m.city}&state=${address.state}&streetAddr=${m.street}`
+      //
+      // if (!status.error) {
+      //   await fetch(fetchMapURL)
+      //       .then((response) => response.text())
+      //       .then((data) => {
+      //         setMapCode(data)
+      //       })
+      //       .catch((err) => {
+      //         console.log("In MuseumMap- error fetching Map", err);
+      //         setMapError('Unable to fetch Map');
+      //       })
+      //       .finally(() => {})
+      // }
     }
     fetchMap(props.id)
         .finally(() => setLoadingStatus({ loading: false }))

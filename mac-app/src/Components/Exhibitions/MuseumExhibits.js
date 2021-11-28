@@ -24,13 +24,16 @@ function MuseumExhibits(props) {
       });
       setLoadingStatus({ loading:false })
     }
-    fetchExhibits(props.options)
-        .catch(err => console.log("Error fetching Exhibits: ", err))
+    if(!props.filterVisible) {
+      fetchExhibits(props.options)
+          .catch(err => console.log("Error fetching Exhibits: ", err))
+    }
   }, [props]);
 
   // ----------- Render Exhibition Info --------------
   return (
       <>
+        <p>{`Props = ${props.filterVisible}`}</p>
   
         { loadingStatus.loading ?
             <div>

@@ -2,6 +2,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../Helpers/LoadingSpinner";
 import Parser from "html-react-parser";
+import getMap from '../../DataAccess/getMap'
 
 // ------ Show details about one restaurant, with map, in a Modal  ------------
 
@@ -21,37 +22,38 @@ function RestaurantModal(props) {
   useEffect(() => {
         async function fetchMap(props) {
           setLoadingStatus({loading: true})
-          let status = {error: false};
+          // let status = {error: false};   todo
           
-          let fetchMapURL = "http://flip1.engr.oregonstate.edu:5679/map?";
+          // let fetchMapURL = "http://flip1.engr.oregonstate.edu:5679/map?";
           
           // Temp array to format spaces = '+' for url
-          let r = {}
-          
-          try {
-            r.street = props.restaurant.street.split(' ').join('+');
-            r.city = props.restaurant.city.split(' ').join('+');
-            console.log("r = ", r, !status.error)
-          } catch {
-            setMapError('Unable to fetch Map');
-            status.error = true;
-          }
-          
-          fetchMapURL += `city=${r.city}&state=${props.restaurant.state}&streetAddr=${r.street}`
 
-          if (!status.error) {
-            await fetch(fetchMapURL)
-                .then((response) => response.text())
+
+          // let r = {}
+          //
+          // try {
+          //   r.street = props.restaurant.street.split(' ').join('+');
+          //   r.city = props.restaurant.city.split(' ').join('+');
+          //   console.log("r = ", r, !status.error)
+          // } catch {
+          //   setMapError('Unable to fetch Map');
+          //   status.error = true;
+          // }
+          //
+          // fetchMapURL += `city=${r.city}&state=${props.restaurant.state}&streetAddr=${r.street}`
+
+          // if (!status.error) {
+            await getMap(props)
+                // .then((response) => response.text())
                 .then((data) => {
                   setMapCode(data)
                 })
                 .catch((err) => {
-                  console.log("In MuseumMap- error fetching Map", err);
-                  setMapError('Unable to fetch Map');
+                  setMapError(err);
                 })
-          }
+          // }
         }
-        fetchMap(props)
+        fetchMap(props.restaurant)
             .finally(() => setLoadingStatus({loading: false}))
       }
       , [props]);
