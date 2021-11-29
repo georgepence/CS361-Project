@@ -1,16 +1,7 @@
 import {Modal, Container, Button, Row, Col} from 'react-bootstrap';
 
-// GenericModal
-// props:
-//    title: title of the modal
-//    visible: state variable to handle visibility
-//    setVisible
-//    action: function to run when form is submitted. Currently no parameters, but those could
-//          be added as props.
-
-// The form fields go in the body
-
-function GenericModal(props){
+function GenericModal(props) {
+  
   return (
       <Modal animation={false} show={props.visible} onHide={() => props.setVisible(false)}>
         <Modal.Header closeButton>
@@ -34,22 +25,19 @@ function GenericModal(props){
               <Row>
                 <Col>
                   <Button variant="primary" md={4} type={"submit"}>
-                    Ok {/* (or make this a prop?) */}
+                    Ok
                   </Button>
                 </Col>
                 <Col>
                   <Button variant="secondary" md={4} onClick={() => {
                     props.setVisible(false);
-                    {props.setResetModal && props.setResetModal(true);}
-                    {
-                      props.setLoadingStatus &&
-                      props.setLoadingStatus({
-                        cancelled: true,
-                        loading: false,
-                        error: false
-                      });
-                      console.log("Loading Status is false!");
-                    }
+                    props.setResetModal && props.setResetModal(true);
+                    props.setLoadingStatus &&
+                    props.setLoadingStatus({
+                      cancelled: true,
+                      loading: false,
+                      error: false
+                    });
                   }}>
                     Cancel
                   </Button>
