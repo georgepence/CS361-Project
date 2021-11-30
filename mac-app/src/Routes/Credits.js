@@ -74,7 +74,7 @@ function Credits() {
                 <Row>
                   <Col>
                     <p id={"confirm-github"}>
-                      This will navigate away away from Richmond VA Museums, to a
+                      This will navigate away from Richmond VA Museums, to a
                       different website
                     </p>
                   </Col>
