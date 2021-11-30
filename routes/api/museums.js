@@ -3,7 +3,6 @@ const router = express.Router();
 const queryDB = require('../../database/dbcon');
 
 const app = express();
-// app.use(express.urlencoded({ extended: false }));  // TODO ?
 
 //  --------------- Get all museums, with selected fields ---------------------
 
