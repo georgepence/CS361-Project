@@ -1,14 +1,23 @@
 import './App.css';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-// import { useState } from "react";    // TODO
+import { useState } from "react";
 
 import { Navbar } from "./Components/Navbar";
 import Home from './Routes/Home';
 import Exhibitions from './Routes/Exhibitions';
 import Credits from "./Routes/Credits";
 
-
 function App() {
+  
+  // State and State setters to control what the user sees
+  const [ selectedMuseumId, setSelectedMuseumId ] = useState('');
+  const [ largePicture, setLargePicture ] = useState('');
+  const [ show, setShow ] = useState({
+    rvaMuseums: true,
+    museum: false,
+    museumExhibits: false,
+    exhibitions: false
+  })
   
   // ----------- Render Page --------------------------------------------------
   
@@ -19,7 +28,13 @@ function App() {
         <Switch>
           
           <Route path={"/Exhibitions"}>
-            <Exhibitions />
+            <Exhibitions setSelectedMuseumId={setSelectedMuseumId}
+                         selectedMuseumId={selectedMuseumId}
+                         show={show}
+                         setShow={setShow}
+                         largePicture={largePicture}
+                         setLargePicture={setLargePicture}
+            />
           </Route>
 
           <Route path="/Credits">
@@ -27,7 +42,13 @@ function App() {
           </Route>
           
           <Route path="/">
-            <Home />
+            <Home setSelectedMuseumId={setSelectedMuseumId}
+                  selectedMuseumId={selectedMuseumId}
+                  show={show}
+                  setShow={setShow}
+                  largePicture={largePicture}
+                  setLargePicture={setLargePicture}
+            />
           </Route>
           
         </Switch>

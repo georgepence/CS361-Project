@@ -19,7 +19,6 @@ function MuseumExhibits(props) {
       setLoadingStatus({ loading: true });
       setAllMuseums(!options.id);
       await GetExhibitions(options).then((result) => {
-        console.log(result);
         setMuseums(result);
       });
       setLoadingStatus({ loading:false })
@@ -52,7 +51,17 @@ function MuseumExhibits(props) {
                     {allMuseums ?
                         <Link id={"mus-exh-link"}
                               className={"museum-exh-name"}
-                              // onClick={() => props.setSelectedMuseum(museum.id)}
+                              title={`Click to view information about the ${museum.name}`}
+                              onClick={() => {
+                                props.setSelectedMuseumId(museum.id)
+                                props.setLargePicture(museum.largePicture)
+                                props.setShow({
+                                  rvaMuseums: false,
+                                  museum: true,
+                                  museumExhibits: false,
+                                  exhibitions: false
+                                })
+                              }}
                               to={{pathname: `/Museum?id=${museum.id}`}}>
                     
                           {museum.name}

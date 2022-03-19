@@ -3,7 +3,6 @@ import BreadCrumbs from "./Helpers/BreadCrumbs";
 import { useEffect, useState } from "react";
 
 import getMuseumInfo from "../DataAccess/getMuseumInfo";
-// import getExhibitions from "../DataAccess/getExhibitions";
 import LoadingSpinner from "./Helpers/LoadingSpinner";
 import MuseumInfo from "./Museum/MuseumInfo";
 import MuseumExhibits from "./Exhibitions/MuseumExhibits";
@@ -16,7 +15,6 @@ function Museum(props) {
   // ----------- Set State -----------------------------------------------------
   const [ loadingStatus, setLoadingStatus ] = useState({ loading: false });
   const [ museum, setMuseum ] = useState({});
-  // const [ exhibits, setExhibits ] = useState([]);
   const [ restaurants, setRestaurants ] = useState([]);
   const [ restaurant, setRestaurant ] = useState(0);
   const [ modalShow, setModalShow ] = useState(false);
@@ -28,7 +26,6 @@ function Museum(props) {
       setLoadingStatus({ loading:true });
       
       await getMuseumInfo(id).then( info => setMuseum(info[0]) );
-      // await getExhibitions({ id: id }).then( result => setExhibits(result) );
       
       setLoadingStatus({ loading:false });
       }
@@ -40,7 +37,6 @@ function Museum(props) {
     async function fetchRestaurants() {
       setLoadingStatus({loading: true})
 
-      // http://flip1.engr.oregonstate.edu:5678/map?city=Richmond&state=VA
       const url = 'http://flip1.engr.oregonstate.edu:9797/search?'
       await fetch(url + `city=Richmond&state=VA`)
           .then((response) => response.json())
@@ -55,7 +51,6 @@ function Museum(props) {
     }
     fetchRestaurants().then(() => {
       setLoadingStatus({loading: false})
-      console.log("restaurants fetched")
     });
   }, []);
   
@@ -64,9 +59,6 @@ function Museum(props) {
       <Container>
        
         <BreadCrumbs show={props.show} setShow={props.setShow} museum={museum.name}/>
-
-        {/*<Row id={"home-r1"}>*/}
-        {/*  <Col>*/}
         
         <div id={"museum-banner-container"}>
             <Image src={`${process.env.PUBLIC_URL}/images/banner/${props.largePicture}`}
@@ -76,11 +68,6 @@ function Museum(props) {
             <h1 id={"museum-h1"}>{museum.name}</h1>
           </div>
         </div>
-        
-        {/*  </Col>*/}
-        {/*</Row>*/}
-        
-        {/*<Row ><LoadingSpinner loading={loadingStatus.loading} /></Row>*/}
         
         {/* Museum info container, so things don't collapse during refresh */}
         <div id={"museum-info-container"}>

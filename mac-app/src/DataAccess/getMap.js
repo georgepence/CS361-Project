@@ -1,4 +1,3 @@
-// props => { museum: {}, setMapLoadingStatus }  todo
 
 function getMap(data) {
   

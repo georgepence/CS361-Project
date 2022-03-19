@@ -1,11 +1,8 @@
 import {fetchExhibitsQuery} from "./queries";
 
 const GetExhibitions = async (options) => {
-
-  console.log("In getExhibitions, options = ", options)
-  const url = `/api/exhibitions?query=${fetchExhibitsQuery(options)}`
   
-  console.log("In GetExhibitions, url = ", url);    // todo
+  const url = `/api/exhibitions?query=${fetchExhibitsQuery(options)}`
   
   return new Promise((res, rej) => {
     fetch(url)
@@ -16,6 +13,7 @@ const GetExhibitions = async (options) => {
           let rvaMuseums = [{
             name: data[0].museum,
             id: data[0].id,
+            largePicture: data[0].largePicture,
             exhibitions: []
           }];
           let index = 0;
@@ -25,6 +23,7 @@ const GetExhibitions = async (options) => {
               rvaMuseums.push({
                 name: data[i].museum,
                 id: data[i].id,
+                largePicture: data[i].largePicture,
                 exhibitions: []
               });
               index++

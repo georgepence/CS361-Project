@@ -1,4 +1,4 @@
-import { Container, Modal, Row, Col, Button } from "react-bootstrap";
+import { Container, Modal, Row, Col, Button, Breadcrumb } from "react-bootstrap";
 import { useState } from "react";
 
 // Credits
@@ -11,6 +11,11 @@ function Credits() {
       <div>
         
         <Container>
+          <Breadcrumb>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item active>Credits</Breadcrumb.Item>
+          </Breadcrumb>
+          
           <div style={{height: "50px"}}>
             <p> </p>
           </div>
@@ -69,7 +74,7 @@ function Credits() {
                 <Row>
                   <Col>
                     <p id={"confirm-github"}>
-                      This will navigate away away from Richmond Virginia Museums, to a
+                      This will navigate away from Richmond VA Museums, to a
                       different website
                     </p>
                   </Col>

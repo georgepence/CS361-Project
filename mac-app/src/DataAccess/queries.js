@@ -6,7 +6,6 @@ const fetchMuseumQuery = function getMuseumInfo(id) {
 
 const fetchExhibitsQuery = function getExhibitions(options) {
   let whereClause
-  console.log("In queries.js, options = ", options || "No Options", (!options.id && !options.date))
   
   if (!options.id && !options.date) {
     whereClause = '';
@@ -20,6 +19,7 @@ const fetchExhibitsQuery = function getExhibitions(options) {
   }
   
   return "select Museums.name as museum, Museums.museumId as id, " +
+      "Museums.largePicture as largePicture, " +
       "Exhibitions.startDate as startDate, Exhibitions.endDate as endDate, " +
       " Exhibitions.exhibitName as exhibition, Exhibitions.exhibitId as " +
       "exhId from Museums left join Exhibitions on Museums.museumId = " +

@@ -1,14 +1,12 @@
 import { Container, Row, Col, Breadcrumb, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
-// import LoadingSpinner from "../Components/LoadingSpinner";   // Todo
+import { useState } from "react";
+
 import MuseumExhibits from "../Components/Exhibitions/MuseumExhibits";
 import FilterModal from "../Components/Helpers/FilterModal";
 import Date from "../Components/Helpers/Date";
-import RestaurantModal from "../Components/Museum/RestaurantModal";
 
 function Exhibitions(props) {
-  // const [exhibitions, setExhibitions] = useState([]);    // TODO
-  // const [museums, setMuseums] = useState([]);            // Todo
+
   const [ filterModalShow, setFilterModalShow ] = useState(false)
   const [ visitDate, setVisitDate ] = useState('');
   
@@ -55,6 +53,9 @@ function Exhibitions(props) {
           <MuseumExhibits visible={true}
                           options={visitDate ? {date: visitDate} : {}}
                           filterVisible={filterModalShow}
+                          setSelectedMuseumId={props.setSelectedMuseumId}
+                          setShow={props.setShow}
+                          setLargePicture={props.setLargePicture}
           />
 
           {filterModalShow ?

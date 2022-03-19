@@ -12,6 +12,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// Accepts a function to log results (for example: reportWebVitals(console.log))
-// Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
